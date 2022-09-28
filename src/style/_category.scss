@@ -1,0 +1,36 @@
+.category {
+      // флекс элемент
+
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 180px;
+
+
+      &__list {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 100% // такой же как и  у родителя
+      }
+
+      &__item {}
+
+      &__btn {}
+
+      &__btn--photografer {}
+
+      &__btn--makeup {}
+
+      &__btn--masseur {}
+
+      &__btn--handyman {}
+
+      &__btn--cosmetolog {}
+
+      &__btn--electrian {}
+
+      &__btn--manikurist {}
+
+      &__btn--plamber {}
+}

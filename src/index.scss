@@ -1,3 +1,12 @@
-@import 'style/fonts';
+@import '~normalize.css';
+@import 'style/fonts'; // ипморт fonts.scss
 @import 'style/var';
 @import 'style/style';
+@import 'style/header';
+@import 'style/search';
+
+@import 'style/services';
+@import 'style/service';
+@import 'style/category';
+
+@import 'style/stars';

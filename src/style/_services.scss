@@ -1,0 +1,20 @@
+.services {
+
+      padding: 25px 0;
+
+      &__container {
+            display: flex;
+            gap: 20px;
+      }
+
+      &__list {}
+
+
+      &__item:not(:last-child) {
+            // не последнему элементу
+            margin-bottom: 10px;
+      }
+
+
+
+}

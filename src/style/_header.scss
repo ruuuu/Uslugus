@@ -1,0 +1,43 @@
+.header {
+
+      padding: 25px 0;
+
+      &__container {
+            display: flex;
+            align-items: center;
+      }
+
+      &__logo {
+            margin-right: 88px;
+      }
+
+      &__search {
+            // флекс элемент, прижмется влево
+            margin-right: auto;
+      }
+
+
+      &__auth {
+            display: flex;
+            gap: 40px;
+      }
+
+      &__auth-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color ю2s ease-in-out; // цвет меняется плавно в течение 0.2s
+
+            &:hover {
+                  color: #FFD600;
+            }
+
+            &:active {
+                  color: #E5C207;
+            }
+      }
+
+      &__auth-btn--sign-in {}
+
+      &__auth-btn--sign-out {}
+}
