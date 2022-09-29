@@ -1,0 +1,31 @@
+.footer {
+      padding: 25px 0;
+
+      &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+      }
+
+      &__wrapper {}
+
+      &__logo {
+            width: 112px;
+            height: 28px;
+            display: block;
+            margin-bottom: 42px;
+      }
+
+      &__copyright {
+            align-self: center;
+      }
+
+      &__contacts {
+            margin-left: auto;
+      }
+
+      &__design {
+            margin-bottom: 8px;
+      }
+
+}

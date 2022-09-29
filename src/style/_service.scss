@@ -1,24 +1,69 @@
 .service {
+      // грид контенер
       padding: 24px;
       background-color: #fff;
       border-radius: 8px;
       margin-bottom: 10px;
 
+      display: grid;
+      grid-template-columns: 50px 1fr max-content;
+      gap: 20px 24px;
+
+      grid-template-areas: // 2 строки, 3 столбца
+            "avatar present price"
+            " . . review";
 
 
-      &__avatar {}
 
-      &__present {}
+      &__avatar {
+            // грид элемент
+            grid-area: avatar;
+      }
 
-      &__title {}
+      &__present {
+            // грид элемент
+            grid-area: present;
+      }
 
-      &__name {}
+      &__title {
+            margin-bottom: 10px;
+            font-size: 24px;
+            line-height: 28px;
+      }
 
-      &__price {}
+      &__name {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+      }
 
-      &__review {}
+      &__price {
+            // грид элемент
+            grid-area: price;
+            font-size: 24px;
+            line-height: 28px;
+            justify-self: end; // грид элемент прижмется вправо
+      }
 
-      &__stars {}
+      &__review {
+            // грид элемент
+            grid-area: review;
+            display: flex;
+            align-items: center;
+      }
 
-      &__count-review {}
+      &__stars {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin-right: 16px;
+      }
+
+      &__count-review {
+            padding-left: 15px; // место для иконки оставляем
+            background-image: url("img/review.svg");
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: 14px 14px;
+      }
 }

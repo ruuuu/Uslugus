@@ -1,36 +1,60 @@
 .category {
       // флекс элемент
 
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: 180px;
 
 
-      &__list {
+      &__title {
             display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            flex-shrink: 1;
-            flex-basis: 100% // такой же как и  у родителя
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
       }
 
-      &__item {}
+      &__list {}
 
-      &__btn {}
+      &__item {
+            margin-bottom: 10px;
 
-      &__btn--photografer {}
+      }
 
-      &__btn--makeup {}
+      &__btn {
+            font-weight: 300;
+            padding-left: 30px; // осовобили место для иконоки
+            background-position: left;
+            background-size: 18px 18px;
+            background-repeat: no-repeat;
 
-      &__btn--masseur {}
+      }
 
-      &__btn--handyman {}
+      &__btn--photografer {
+            background-image: url('img/camera.svg');
+      }
 
-      &__btn--cosmetolog {}
+      &__btn--makeup {
+            background-image: url('img/make-up.svg');
+      }
 
-      &__btn--electrian {}
+      &__btn--masseur {
+            background-image: url('img/massage.svg');
+      }
 
-      &__btn--manikurist {}
+      &__btn--handyman {
+            background-image: url('img/husband.svg');
+      }
 
-      &__btn--plamber {}
+      &__btn--cosmetolog {
+            background-image: url('img/cosmetolog.svg');
+      }
+
+      &__btn--electrian {
+            background-image: url('img/electric.svg');
+      }
+
+      &__btn--manikurist {
+            background-image: url('img/manikur.svg');
+      }
+
+      &__btn--plamber {
+            background-image: url('img/plamber.svg');
+      }
 }
