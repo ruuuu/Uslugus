@@ -11,8 +11,12 @@
 
       grid-template-areas: // 2 строки, 3 столбца
             "avatar present price"
-            " . . review";
+            "contacts contacts review";
 
+
+      &--person {
+            gap: 40px 14px; //  40px между строками 
+      }
 
 
       &__avatar {
@@ -29,6 +33,7 @@
             margin-bottom: 10px;
             font-size: 24px;
             line-height: 28px;
+            font-weight: 400;
       }
 
       &__name {
@@ -45,17 +50,57 @@
             justify-self: end; // грид элемент прижмется вправо
       }
 
+
+      &__contacts {
+            // грид элемент
+            grid-area: contacts;
+            grid-column: 1/3; // растянется  c  1-ой по  3-ую линию.
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+      }
+
+      &__link {
+            position: relative; // иконки будем позиционировать относиельно этого элемента
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            &::before {
+                  // псевдоэлемент для иконкон теелфона и  емейл
+                  content: '';
+                  display: block; //  чтоыб восприимал размеры иконок
+                  width: 24px; // размеры иконки
+                  height: 24px;
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  background-position: center;
+            }
+
+            &--phone::before {
+                  background-image: url('img/phone.svg');
+            }
+
+            &--email::before {
+                  background-image: url('img/envelope.svg');
+            }
+      }
+
+      &__link--phone {}
+
+
       &__review {
             // грид элемент
             grid-area: review;
+            align-self: end; // грид элемент прижмется к низу ячейки
             display: flex;
             align-items: center;
+
       }
 
       &__stars {
-            display: flex;
-            align-items: center;
-            gap: 2px;
+
             margin-right: 16px;
       }
 
@@ -66,4 +111,6 @@
             background-repeat: no-repeat;
             background-size: 14px 14px;
       }
+
+
 }

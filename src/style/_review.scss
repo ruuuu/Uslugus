@@ -1,0 +1,96 @@
+.review {
+
+
+      &__title {
+            margin-bottom: 16px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+      }
+
+      &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+      }
+
+      &__item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: min-content; //  чтобы элемент не был больше, чем он может быть
+            gap: 8px;
+            padding: 14px;
+            background-color: #fff;
+            border-radius: 8px;
+            min-height: 95px; // для преполнения текстом
+      }
+
+      &__name {
+            // грид элемент
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+      }
+
+
+
+
+
+
+
+      &__stars {
+            // грид элемент
+            justify-self: end; // элемент прижмется  к правому краю ячейки
+      }
+
+
+      &__text {
+            // грид элемент
+            grid-column: span 2; // грид элемен растянетсяна 2 колнки
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+
+            overflow: hidden;
+            display: -webkit-box; // эти три свойства испоьзуем чтобы многоточие было
+            -webkit-line-clamp: 2; // 2 -число строк
+            -webkit-box-orient: vertical; //  то есть колнки считаем по вертикали
+
+            &--open {
+                  display: block; // показываем весь текст
+            }
+      }
+
+
+      &__open {
+            // грид элемент
+            position: relative; // для нижнего подчеркивания
+            justify-self: start; // элемент прижмется к левому краю ячейки
+            font-weight: 400;
+            line-height: 16px;
+
+            &::after {
+                  // нижнее подчеркивание сделам псевдоэлементом
+                  content: '';
+                  position: absolute;
+                  bottom: 2px;
+                  display: block; // чтоы задать размеры 
+                  width: 100%;
+                  height: 1px;
+                  background-color: $text;
+
+            }
+
+
+            &--list {
+                  display: block;
+                  margin-left: auto; //  элемент уедет вправо
+            }
+
+      }
+
+
+
+
+}

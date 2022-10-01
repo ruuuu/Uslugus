@@ -1,31 +1,62 @@
 .footer {
       padding: 25px 0;
 
+      // &__container {
+      //       display: flex;
+      //       justify-content: space-between;
+      //       align-items: flex-end;
+      // }
+
+      // &__wrapper {}
+
+      // &__logo {
+      //       width: 112px;
+      //       height: 28px;
+      //       display: block;
+      //       margin-bottom: 42px;
+      // }
+
+      // &__copyright {
+      //       align-self: center;
+      // }
+
+      // &__contacts {
+      //       margin-left: auto;
+      // }
+
+      // &__design {
+      //       margin-bottom: 8px;
+      // }
+
+
+
+
+
       &__container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            display: grid;
+            grid-template-areas:
+                  'logo .'
+                  'copyright contacts'
+            ;
+            gap: 14px;
       }
 
-      &__wrapper {}
+
 
       &__logo {
-            width: 112px;
-            height: 28px;
-            display: block;
-            margin-bottom: 42px;
+            grid-area: logo;
       }
 
       &__copyright {
-            align-self: center;
+            grid-area: copyright;
+            align-self: end; // выравивает грид элемент по вертикали  в ячейке
       }
 
       &__contacts {
-            margin-left: auto;
+            grid-area: contacts;
+            justify-self: end; // выравнивает грид элемент(по горизонтали) в ячейки
       }
 
-      &__design {
-            margin-bottom: 8px;
-      }
+      &__design {}
 
 }

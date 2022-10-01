@@ -1,3 +1,9 @@
-.stars {}
+.stars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      line-height: 0; //  чтоб у  svg убрать нижний отступ
 
-.stars__item {}
+      &__item {}
+
+}

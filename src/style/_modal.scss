@@ -1,3 +1,76 @@
 .modal {
       display: none;
+      position: fixed;
+      top: 0; // растягиваем окно присваивая кооринатам 0
+      right: 0;
+      left: 0;
+      bottom: 0;
+      padding: 40px;
+      overflow-y: auto; // появится пр необходимсти вертикаьный  скролл
+      cursor: pointer; // курсор будет на оверлей(область окружающая мод окно), при нажатии на оверлей, окно будет закрываться
+      background-color: rgba(#000000, $alpha: .6);
+
+
+      &__title {
+            text-align: center;
+            margin-bottom: 24px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+      }
+
+      &__person {
+            // display: flex;
+
+      }
+
+
+      &__body {
+            position: relative; //  Кнопку закрытия будем позиионироват относительно этого
+            max-width: 768px; // ширина модалки
+            width: 100%; //  ткая же как и у родителя, но не больше 768px
+            margin: auto; // центруем модалку
+            cursor: default;
+            background-color: #F2F5FC;
+            border-radius: 12px;
+            padding: 24px 20px 48px;
+      }
+
+
+      &__container {
+            max-width: 632px; // ширина контента
+            margin: 0 auto;
+      }
+
+
+      &__close {
+            //  кнпока закрытия Крестик
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%; //  50% от высоты
+
+            display: flex;
+            align-items: center; //  чтобы кретсик отцентрировался
+            justify-content: center; //  чтобы кретсик отцентрировался
+            color: #7B7B7B;
+
+            transform: translate(50%, -50%);
+            // background-image: url('img/close-button.svg'); // либо в верстку всавить код svg
+            // background-position: 50%;
+            // background-repeat: no-repeat;
+
+
+            &:hover {
+                  color: #000;
+            }
+      }
+
+
+      &__sign-up {
+            display: flex;
+      }
 }

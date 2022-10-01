@@ -1,0 +1,139 @@
+.form {
+
+
+
+      &__fieldset {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 12px;
+
+
+            &--user,
+            &--service {
+                  margin-bottom: 46px;
+            }
+
+            &--password {
+                  margin-bottom: 36px;
+            }
+      }
+
+
+      &__label {
+            // флекс элемент
+            flex-basis: 310px;
+            flex-shrink: 1;
+            flex-grow: 1;
+      }
+
+
+      &__text {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+      }
+
+
+      &__input {
+            display: inline-block;
+            width: 100%;
+            height: 46px;
+            padding: 13px;
+            outline: none; //  чтобы при фокусе рамки не было у поля
+
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: 0;
+      }
+
+
+      &__select {
+            display: inline-block;
+            width: 100%;
+            height: 46px;
+            padding: 13px;
+            outline: none; //  чтобы при фокусе рамки не было у поля
+
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: 0;
+      }
+
+
+      &__select--price {
+            width: 105px;
+      }
+
+
+      &__wrapper-price {
+            display: flex;
+            gap: 5px;
+      }
+
+
+      &__textarea {
+            display: inline-block;
+            width: 100%;
+            min-height: 80px;
+            padding: 13px;
+            outline: none; //  чтобы при фокусе рамки не было у поля
+
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: 0;
+      }
+
+
+      &__password {
+            position: relative; // иконку глазика  будем позиуионироват относиельно этого элемента
+      }
+
+      &__password-eye {
+
+            position: absolute;
+            display: block;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%); // чтоб отцентрвать глазик по вертикали
+            background-image: url('img/close-eye.svg'); // иокнка глазика
+            width: 24px;
+            height: 24px;
+
+            &--show {
+                  background-image: url('img/open-eye.svg');
+            }
+      }
+
+
+
+
+      &__wrapper-btn {
+
+            min-height: 114px; // при загрузке фото, будет фотка, пэтому чтобы она не выпадала указываем min
+            display: flex;
+            justify-content: space-between;
+      }
+
+
+      &__submit {
+            //  флекс элемент
+
+            display: block;
+            padding: 10px 20px;
+            background-color: #FFD600;
+            border-radius: 4px;
+
+            &--sign-up {
+                  // флекс эелмент
+                  align-self: flex-end;
+            }
+
+      }
+
+
+
+
+
+}
