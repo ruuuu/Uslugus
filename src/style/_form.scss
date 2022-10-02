@@ -16,6 +16,16 @@
             &--password {
                   margin-bottom: 36px;
             }
+
+      }
+
+
+
+      &__wrapper-person {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
       }
 
 
@@ -24,7 +34,22 @@
             flex-basis: 310px;
             flex-shrink: 1;
             flex-grow: 1;
+
+            &--personTextarea {
+                  display: block;
+                  margin-bottom: 32px;
+            }
+
       }
+
+
+      &__wrapper-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 24px;
+      }
+
 
 
       &__text {
@@ -46,6 +71,8 @@
             background-color: #FFFFFF;
             border-radius: 8px;
             border: 0;
+
+
       }
 
 
@@ -90,6 +117,7 @@
             position: relative; // иконку глазика  будем позиуионироват относиельно этого элемента
       }
 
+
       &__password-eye {
 
             position: absolute;
@@ -126,8 +154,16 @@
             border-radius: 4px;
 
             &--sign-up {
+                  // кнпока Зарегитрироваться
                   // флекс эелмент
                   align-self: flex-end;
+            }
+
+
+            &--sign-in {
+                  // кнпока Войти
+                  // флекс эелмент
+                  margin-left: auto; // элемент прижемется к правому краю
             }
 
       }

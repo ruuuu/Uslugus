@@ -70,7 +70,21 @@
       }
 
 
+
+      &__person {
+            // модалка Оставить отзыв
+            display: none;
+      }
+
+
+
       &__sign-up {
+            // модалка Регистрация
             display: flex;
+      }
+
+      &__sign-in {
+            // модалка Авторизация
+            display: none;
       }
 }

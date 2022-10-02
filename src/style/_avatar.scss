@@ -1,12 +1,56 @@
 .avatar {
 
-      &__label {}
+      &__label {
+            display: flex;
+            gap: 11px;
+            cursor: pointer;
 
-      &__text {}
+            &:hover {
+                  color: #096601;
 
-      &__input-wrapper {}
+                  .avatar__input-text {
+                        background-color: #DAFFD7;
+                        color: $text;
+                  }
+            }
+      }
 
-      &__input {}
+
+
+      &__text {
+            font-weight: 300;
+      }
+
+
+      &__input-wrapper {
+            position: relative;
+      }
+
+
+
+      &__input {
+            // -webkit-appearance: none;
+            // -moz-appearance: none;
+            // appearance: none; // для input используют так: скрываем, но дотупно, также можно и visully-hiddeт
+            position: absolute;
+            transform: scale(0);
+
+            &:focus+.avatar__input-text {
+                  background-color: #DAFFD7;
+                  border: 1px solid #096601;
+            }
+      }
+
+
+      &__input-text {
+            // кнпока Загрузить файл
+
+            padding: 10px 20px;
+            border: 1px solid #12DF00;
+            border-radius: 4px;
+      }
+
+
 
       &__result {}
 }
