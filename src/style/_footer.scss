@@ -1,6 +1,15 @@
 .footer {
-      padding: 25px 0;
+      padding: 55px 0;
 
+      @include tablet {
+            padding-bottom: 30px;
+      }
+
+      @include mobile {
+            padding-bottom: 14px;
+      }
+
+      // мой способ: 
       // &__container {
       //       display: flex;
       //       justify-content: space-between;
@@ -36,26 +45,48 @@
             display: grid;
             grid-template-areas:
                   'logo .'
-                  'copyright contacts'
-            ;
+                  'copyright contacts';
             gap: 14px;
-      }
 
+
+            @include mobile {
+                  grid-template-areas:
+                        'logo'
+                        'contacts'
+                        'copyright';
+
+                  gap: 0;
+            }
+
+
+      }
 
 
       &__logo {
             grid-area: logo;
+
+            @include mobile {
+                  padding-bottom: 44px;
+            }
       }
+
 
       &__copyright {
             grid-area: copyright;
             align-self: end; // выравивает грид элемент по вертикали  в ячейке
       }
 
+
       &__contacts {
             grid-area: contacts;
             justify-self: end; // выравнивает грид элемент(по горизонтали) в ячейки
+
+            @include mobile {
+                  justify-self: start; // выравнивает грид элемент(по горизонтали) в ячейки
+                  margin-bottom: 33px;
+            }
       }
+
 
       &__design {}
 

@@ -1,2 +1,51 @@
 $back: #F2F5FC;
 $text: #000;
+
+
+// МИксин испольуем так (1-ый способ), бдуем использвоать этот способ
+@mixin laptop {
+
+      @media(max-width: 1024px) {
+            // < 1024px
+            @content; //  чтобы передавать какой то контент
+      }
+}
+
+
+@mixin tablet {
+      @media(max-width: 768px) {
+            // < 768px
+            @content;
+
+      }
+}
+
+
+@mixin mobile {
+
+      @media(max-width: 520px) {
+            // < 520px
+            @content;
+
+      }
+}
+
+
+@mixin mini {
+
+      @media(max-width: 360px) {
+            // < 360px
+            @content;
+
+      }
+}
+
+
+// МИксин испольуем так (2-ой способ)
+@mixin max-width($width) {
+
+      // max-width - название миксина
+      @media (max-width: $width) {
+            @content;
+      }
+}

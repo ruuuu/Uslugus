@@ -4,18 +4,32 @@
 
 
       &__title {
+            width: 180px;
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 24px;
+
+
+            @include tablet {
+                  margin-bottom: 0;
+            }
       }
 
-      &__list {}
+
+      &__list {
+            padding-top: 24px;
+
+            @include tablet {
+                  display: none;
+            }
+      }
+
 
       &__item {
             margin-bottom: 10px;
 
       }
+
 
       &__btn {
             font-weight: 300;
@@ -26,33 +40,41 @@
 
       }
 
+
       &__btn--photografer {
             background-image: url('img/camera.svg');
       }
+
 
       &__btn--makeup {
             background-image: url('img/make-up.svg');
       }
 
+
       &__btn--masseur {
             background-image: url('img/massage.svg');
       }
+
 
       &__btn--handyman {
             background-image: url('img/husband.svg');
       }
 
+
       &__btn--cosmetolog {
             background-image: url('img/cosmetolog.svg');
       }
+
 
       &__btn--electrian {
             background-image: url('img/electric.svg');
       }
 
+
       &__btn--manikurist {
             background-image: url('img/manikur.svg');
       }
+
 
       &__btn--plamber {
             background-image: url('img/plamber.svg');

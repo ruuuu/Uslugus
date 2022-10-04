@@ -6,14 +6,24 @@
             font-weight: 400;
             font-size: 24px;
             line-height: 28px;
+
+            @include mobile {
+                  font-size: 16px;
+            }
       }
+
 
       &__list {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin-bottom: 16px;
+
+            @include mobile {
+                  margin-bottom: 8px;
+            }
       }
+
 
       &__item {
             display: grid;
@@ -26,17 +36,17 @@
             min-height: 95px; // для преполнения текстом
       }
 
+
       &__name {
             // грид элемент
             font-weight: 400;
             font-size: 16px;
             line-height: 19px;
+
+            @include mobile {
+                  font-size: 14px;
+            }
       }
-
-
-
-
-
 
 
       &__stars {
@@ -59,6 +69,10 @@
 
             &--open {
                   display: block; // показываем весь текст
+            }
+
+            @include mobile {
+                  font-size: 14px;
             }
       }
 

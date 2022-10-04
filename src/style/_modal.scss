@@ -10,6 +10,16 @@
       cursor: pointer; // курсор будет на оверлей(область окружающая мод окно), при нажатии на оверлей, окно будет закрываться
       background-color: rgba(#000000, $alpha: .6);
 
+      @include tablet {
+            padding: 20px;
+      }
+
+      @include mini {
+            padding: 0;
+      }
+
+
+
 
       &__title {
             text-align: center;
@@ -17,7 +27,12 @@
             font-weight: 400;
             font-size: 24px;
             line-height: 28px;
+
+            @include mobile {
+                  font-size: 18px;
+            }
       }
+
 
       &__person {
             // display: flex;
@@ -51,6 +66,7 @@
             width: 40px;
             height: 40px;
             background-color: #fff;
+            z-index: 10; // чтобы крестик бы поверх модалки 
             border-radius: 50%; //  50% от высоты
 
             display: flex;
@@ -59,7 +75,7 @@
             color: #7B7B7B;
 
             transform: translate(50%, -50%);
-            // background-image: url('img/close-button.svg'); // либо в верстку всавить код svg
+            // background-image: url('img/close-button.svg'); // либо стили пропсиать, либо  в верстку всавить код svg. Мы вставили svg кодом
             // background-position: 50%;
             // background-repeat: no-repeat;
 
@@ -67,8 +83,13 @@
             &:hover {
                   color: #000;
             }
-      }
 
+
+            @include mini {
+                  transform: none;
+                  box-shadow: 0 0 10px #ccc;
+            }
+      }
 
 
       &__person {
@@ -77,14 +98,14 @@
       }
 
 
-
       &__sign-up {
             // модалка Регистрация
-            display: flex;
+            display: none
       }
+
 
       &__sign-in {
             // модалка Авторизация
-            display: none;
+            display: flex;
       }
 }
