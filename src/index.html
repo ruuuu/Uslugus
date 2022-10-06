@@ -11,6 +11,8 @@
   <!--шрифты https://google-webfonts-helper.herokuapp.com/fonts/roboto?subsets=cyrillic,latin-->
 
   <title>Услугус - сервис услуг</title>
+  <script defer></script>
+  <!--defer чтоыб скрипт запускался тлоьок после того как вся верстка загрузится-->
 </head>
 
 <body>
@@ -80,35 +82,35 @@
 
           <ul class="category__list">
             <li class="category__item">
-              <button class="category__btn category__btn--photografer">Фотограф</button>
+              <button class="category__btn category__btn--photografer" data-value="photografer">Фотограф</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--makeup"> Визажист</button>
+              <button class="category__btn category__btn--makeup" data-value="makeup"> Визажист</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--masseur">Массажист</button>
+              <button class="category__btn category__btn--masseur" data-value="masseur">Массажист</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--handyman">Муж на час</button>
+              <button class="category__btn category__btn--handyman" data-value="handyman">Муж на час</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--cosmetolog">Косметолог</button>
+              <button class="category__btn category__btn--cosmetolog" data-value="cosmetolog">Косметолог</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--electrian">Электрик</button>
+              <button class="category__btn category__btn--electrian" data-value="electrian">Электрик</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--manikurist">Мастер маникюра</button>
+              <button class="category__btn category__btn--manikurist" data-value="manikurist">Мастер маникюра</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--plamber">Сантехник</button>
+              <button class="category__btn category__btn--plamber" data-value="plamber">Сантехник</button>
             </li>
           </ul>
         </div>
@@ -371,7 +373,7 @@
               <p class="review__text">Быстро, профессионально, качественно! Работой очень доволен! Рекомендую! Быстро,
                 профессионально, качественно! Работой очень доволен! Рекомендую! Быстро, профессионально, качественно!
                 Работой очень доволен! Рекомендую!</p>
-              <button class="review__open">Развернуть</button>
+              <!-- <button class="review__open">Развернуть</button> -->
             </li>
 
             <li class="review__item">
@@ -385,13 +387,8 @@
                 <img class="stars__item" src="./img/star.svg" alt="">
                 <img class="stars__item" src="./img/star-o.svg" alt="">
               </div>
-              <p class="review__text review__text--open">Быстро, профессионально, качественно! Работой очень доволен!
-                Рекомендую!
-                Быстро,
-                профессионально, качественно! Работой очень доволен! Рекомендую!Быстро, профессионально, качественно!
-                Работой очень доволен! Рекомендую! Быстро,
-                профессионально, качественно! Работой очень доволен! Рекомендую!</p>
-              <button class="review__open review__open--text">Свернуть</button>
+              <p class="review__text">Быстро, профессионально, </p>
+              <!-- <button class="review__open review__open--text">Свернуть</button> -->
             </li>
           </ul>
 

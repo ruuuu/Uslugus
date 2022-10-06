@@ -62,13 +62,13 @@
             font-size: 16px;
             line-height: 19px;
 
-            overflow: hidden;
+            overflow: hidden; // скрываем то, что не умещается 
             display: -webkit-box; // эти три свойства испоьзуем чтобы многоточие было
             -webkit-line-clamp: 2; // 2 -число строк
             -webkit-box-orient: vertical; //  то есть колнки считаем по вертикали
 
             &--open {
-                  display: block; // показываем весь текст
+                  display: block; // показываем весь комментарий
             }
 
             @include mobile {

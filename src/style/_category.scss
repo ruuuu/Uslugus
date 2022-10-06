@@ -1,6 +1,6 @@
 .category {
       // флекс элемент
-
+      position: relative; //  относительно этого элемента позиционруем .category__list
 
 
       &__title {
@@ -8,6 +8,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            position: relative; //  чтобы пропсиать z-index
+            z-index: 10;
 
 
             @include tablet {
@@ -21,6 +23,16 @@
 
             @include tablet {
                   display: none;
+                  position: absolute; // позиионирем  меню относиельно  родителя  .category
+                  top: -16px;
+                  left: -16px;
+                  z-index: 3;
+
+                  padding: 16px;
+                  padding-top: 60px;
+                  background-color: #FFFFFF;
+                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                  border-radius: 12px;
             }
       }
 
