@@ -95,7 +95,7 @@
 
 
       &__select--price {
-            width: 105px;
+            min-width: 105px;
       }
 
 
@@ -129,12 +129,12 @@
             right: 14px;
             top: 50%;
             transform: translateY(-50%); // чтоб отцентрвать глазик по вертикали
-            background-image: url('img/close-eye.svg'); // иокнка глазика
+            background-image: url('img/close-eye.svg'); // иокнка закрытого глазика
             width: 24px;
             height: 24px;
 
             &--show {
-                  background-image: url('img/open-eye.svg');
+                  background-image: url('img/open-eye.svg'); // иокнка открытого глазика
             }
       }
 

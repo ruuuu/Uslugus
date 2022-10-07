@@ -2,7 +2,8 @@ import './index.html';
 import './index.scss';
 import { modalController } from './modules/modalController';         // ипморт фукнции modalController из файла modalController.js
 import { selectController } from './modules/selectController';
-
+import { showPassword } from './modules/showPassword';
+import { choicesController } from './modules/choicesController';
 
 const init = () => {
       // для мод окна авторизация
@@ -56,13 +57,18 @@ const init = () => {
             }
       });
 
-      // выпадашка открывается:
+      // выпадашка меню открывается:
       selectController({
             openBtn: '.category__title',
             openBlock: '.category__list',
             closeBtn: '.category__btn',
             handlerChange: (value) => { console.log(value) }
       });
+
+
+      showPassword();
+
+      choicesController();
 
 
 };
