@@ -4,6 +4,10 @@ import { modalController } from './modules/modalController';         // ипмо
 import { selectController } from './modules/selectController';
 import { showPassword } from './modules/showPassword';
 import { choicesController } from './modules/choicesController';
+import { avatarController } from './modules/avatarController';
+import { getCategory } from './modules/getCategory';
+
+
 
 const init = () => {
       // для мод окна авторизация
@@ -50,19 +54,19 @@ const init = () => {
                               })
 
                         }
-                  })
-
-
-
+                  });
             }
       });
+
 
       // выпадашка меню открывается:
       selectController({
             openBtn: '.category__title',
             openBlock: '.category__list',
             closeBtn: '.category__btn',
-            handlerChange: (value) => { console.log(value) }
+            handlerChange: (value) => {
+                  console.log(value);
+            }
       });
 
 
@@ -70,12 +74,17 @@ const init = () => {
 
       choicesController();
 
+      const crp = avatarController({ inputFile: '.avatar__input', uploadResult: '.avatar__result' });             // .avatar__result   контенер, где будет выводиться загруженная картинка    
+
+      getCategory();
 
 };
 
 
 init();
 
+
+// для запуска сервера, в терминале переходим в папку backendFor_uslugus, и пишем команду "node index"
 
 
 

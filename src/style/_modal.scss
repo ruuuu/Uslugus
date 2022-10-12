@@ -1,4 +1,5 @@
 .modal {
+
       display: none;
       position: fixed;
       top: 0; // растягиваем окно присваивая кооринатам 0
@@ -51,6 +52,11 @@
             background-color: #F2F5FC;
             border-radius: 12px;
             padding: 24px 20px 48px;
+
+            @include mini {
+                  padding-left: 10px;
+                  padding-right: 10px;
+            }
       }
 
 
