@@ -6,6 +6,7 @@ import { showPassword } from './modules/showPassword';
 import { choicesController } from './modules/choicesController';
 import { avatarController } from './modules/avatarController';
 import { getCategory } from './modules/getCategory';
+import { renderList } from './modules/renderList';
 
 
 
@@ -59,7 +60,7 @@ const init = () => {
       });
 
 
-      // выпадашка меню открывается:
+      // выпадашка меню открывается (на мобилках):
       selectController({
             openBtn: '.category__title',
             openBlock: '.category__list',
@@ -72,12 +73,13 @@ const init = () => {
 
       showPassword();
 
-      choicesController();
+      choicesController();                                              //    дял выпадающих списков
 
-      const crp = avatarController({ inputFile: '.avatar__input', uploadResult: '.avatar__result' });             // .avatar__result   контенер, где будет выводиться загруженная картинка    
+      const crp = avatarController({ inputFile: '.avatar__input', uploadResult: '.avatar__result' });              // .avatar__result контенер, где будет выводиться загруженная картинка    
 
-      getCategory();
+      getCategory();                                                    // получение категрий от сервера
 
+      renderList();                                                     // отрисовка картчоек специалистов
 };
 
 

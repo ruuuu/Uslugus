@@ -1,4 +1,4 @@
-//  реализации выпадаки Категории (на мобилах):
+//  реализации выпадающег спсика  "Категории" (на мобилках):
 
 
 export const selectController = ({
@@ -10,7 +10,7 @@ export const selectController = ({
 
       const btn = document.querySelector(openBtn);                            // кнпока на котрую кликаем 
 
-      const selectBlock = document.querySelector(openBlock);                  // блок котрый отобразится по надати. на btn
+      const selectBlock = document.querySelector(openBlock);                  // ul- список котрый отобразится по нажатию на btn
 
 
       const data = {
@@ -37,20 +37,19 @@ export const selectController = ({
       };
 
 
-      btn.addEventListener('click', toggleSelectBlock);                 // понажатию на кнопку, вызовется функция 
+      btn.addEventListener('click', toggleSelectBlock);                 // по нажатию на кнопку, вызовется функция 
 
 
 
-      // выбор того элемнта спсика, на который клинклуи, клик вешаем на родителя(делегироваие):
+      // выбор того элемнта спсика, на который клинклуи, клик вешаем на родителя(делегироваие)-ul:
       selectBlock.addEventListener('click', ({ target }) => {
 
-            const option = target.closest(closeBtn); // если у нажатого элемента (target)/ его родителя есть класс .category__btn 
+            const option = target.closest(closeBtn);                                            // если у нажатого элемента (target)/его родителя есть класс .category__btn 
             if (option) {
                   closeSelectBlock();
-                  data.value = option.dataset.value ? option.dataset.value : option.textContent;   // вещаем на кнопку(option) дата-атрибут data-value: option.dataset.value
+                  data.value = option.dataset.value ? option.dataset.value : option.textContent;   // вешаем на кнопку(option) дата-атрибут data-value: option.dataset.value
                   data.handlerChange(data.value);
             }
-
       })
 
       return data;
