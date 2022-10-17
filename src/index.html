@@ -23,7 +23,7 @@
 
       <form class="header__search search">
         <!-- поле поиска -->
-        <input class="search__input" type="text">
+        <input class="search__input" type="text" name="search">
         <button class="search__submit" type="submit">
           <!--кнопки внутри формы имеюь type="submit" по умолчанию, ее вставили как svg(а не псевдоэлементом), потому что будем добавлять ховер эффекты-->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@
 
           <ul class="category__list">
             <li class="category__item">
-              <button class="category__btn category__btn--photografer" data-value="photografer">Фотограф</button>
+              <button class="category__btn category__btn--photografer" data-value="photographer">Фотограф</button>
             </li>
 
             <li class="category__item">
@@ -98,15 +98,15 @@
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--cosmetolog" data-value="cosmetolog">Косметолог</button>
+              <button class="category__btn category__btn--cosmetolog" data-value="cosmetologist">Косметолог</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--electrian" data-value="electrian">Электрик</button>
+              <button class="category__btn category__btn--electrian" data-value="electrician">Электрик</button>
             </li>
 
             <li class="category__item">
-              <button class="category__btn category__btn--manikurist" data-value="manikurist">Мастер маникюра</button>
+              <button class="category__btn category__btn--manikurist" data-value="manicurist">Мастер маникюра</button>
             </li>
 
             <li class="category__item">
@@ -116,8 +116,7 @@
         </div>
 
         <ul class="services__list">
-          <li class="services__item">
-            <!--независмоя единица-->
+          <!-- <li class="services__item" НЕзависимая единица>
             <article class="service">
               <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
 
@@ -130,154 +129,151 @@
 
               <div class="service__review">
                 <div class="service__stars stars">
-                  <img class="stars__item" src="./img/star.svg" alt="Рейтинг специалиста 4 из 5">
-                  <!-- у др img alt не заполням(для слепых людей)-->
-                  <img class="stars__item" src="./img/star.svg" alt="">
-                  <img class="stars__item" src="./img/star.svg" alt="">
-                  <img class="stars__item" src="./img/star.svg" alt="">
-                  <img class="stars__item" src="./img/star-o.svg" alt="">
-                </div>
+                  <img class="stars__item" src="./img/star.svg" alt="Рейтинг специалиста 4 из 5"  у др img alt не заполням(для слепых людей)>
+                 у др img alt не заполням(для слепых людей)
+          <img class="stars__item" src="./img/star.svg" alt="">
+          <img class="stars__item" src="./img/star.svg" alt="">
+          <img class="stars__item" src="./img/star.svg" alt="">
+          <img class="stars__item" src="./img/star-o.svg" alt="">
+      </div>
 
-                <p class="service__count-review"> 4 </p>
-              </div>
-            </article>
-          </li>
-
-
-          <li class="services__item">
-            <!--независмоя единица-->
-            <article class="service">
-              <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
-
-              <div class="service__present">
-                <h3 class="service__title">Фотораф</h3>
-                <p class="service__name">Иван Пю</p>
-              </div>
-
-              <p class="service__price">от 4000 р</p>
-
-              <div class="service__review">
-                <div class="service__stars stars">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
-                  <!-- у др img alt не заполням(для слепых людей)-->
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
-                </div>
-
-                <p class="service__count-review"> 4 </p>
-              </div>
-            </article>
-          </li>
+      <p class="service__count-review"> 4 </p>
+      </div>
+      </article>
+      </li> -->
 
 
-          <li>
-            <article class="service">
-              <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
+          <!-- <li class="services__item">
+        <article class="service">
+          <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
 
-              <div class="service__present">
-                <h3 class="service__title">Фотораф</h3>
-                <p class="service__name">Иван</p>
-              </div>
+          <div class="service__present">
+            <h3 class="service__title">Фотораф</h3>
+            <p class="service__name">Иван Пю</p>
+          </div>
 
-              <p class="service__price">от 4000 р</p>
+          <p class="service__price">от 4000 р</p>
 
-              <div class="service__review">
-                <div class="service__stars stars">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
-                  <!-- у др img alt не заполням(для слепых людей)-->
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
-                </div>
+          <div class="service__review">
+            <div class="service__stars stars">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
+            </div>
 
-                <p class="service__count-review"> 4 </p>
-              </div>
-            </article>
-          </li>
-
-
-          <li>
-            <article class="service">
-              <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
-
-              <div class="service__present">
-                <h3 class="service__title">Фотораф</h3>
-                <p class="service__name">Иван</p>
-              </div>
-
-              <p class="service__price">от 4000 р</p>
-
-              <div class="service__review">
-                <div class="service__stars stars">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
-                  <!-- у др img alt не заполням(для слепых людей)-->
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
-                </div>
-
-                <p class="service__count-review"> 4 </p>
-              </div>
-            </article>
-          </li>
+            <p class="service__count-review"> 4 </p>
+          </div>
+        </article>
+      </li> -->
 
 
-          <li>
-            <article class="service">
-              <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
+          <!-- <li>
+        <article class="service">
+          <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
 
-              <div class="service__present">
-                <h3 class="service__title">Фотораф</h3>
-                <p class="service__name">Иван</p>
-              </div>
+          <div class="service__present">
+            <h3 class="service__title">Фотораф</h3>
+            <p class="service__name">Иван</p>
+          </div>
 
-              <p class="service__price">от 4000 р</p>
+          <p class="service__price">от 4000 р</p>
 
-              <div class="service__review">
-                <div class="service__stars stars">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
-                  <!-- у др img alt не заполням(для слепых людей)-->
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
-                </div>
+          <div class="service__review">
+            <div class="service__stars stars">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
+            </div>
 
-                <p class="service__count-review"> 4 </p>
-              </div>
-            </article>
-          </li>
+            <p class="service__count-review"> 4 </p>
+          </div>
+        </article>
+      </li> -->
 
 
-          <li>
-            <article class="service">
-              <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
+          <!-- <li>
+        <article class="service">
+          <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
 
-              <div class="service__present">
-                <h3 class="service__title">Фотораф</h3>
-                <p class="service__name">Иван</p>
-              </div>
+          <div class="service__present">
+            <h3 class="service__title">Фотораф</h3>
+            <p class="service__name">Иван</p>
+          </div>
 
-              <p class="service__price">от 4000 р</p>
+          <p class="service__price">от 4000 р</p>
 
-              <div class="service__review">
-                <div class="service__stars stars">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
-                  <!-- у др img alt не заполням(для слепых людей)-->
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star.svg" width="18" alt="">
-                  <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
-                </div>
+          <div class="service__review">
+            <div class="service__stars stars">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
+            
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
+            </div>
 
-                <p class="service__count-review"> 4 </p>
-              </div>
-            </article>
-          </li>
+            <p class="service__count-review"> 4 </p>
+          </div>
+        </article>
+      </li> -->
+
+
+          <!-- <li>
+        <article class="service">
+          <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
+
+          <div class="service__present">
+            <h3 class="service__title">Фотораф</h3>
+            <p class="service__name">Иван</p>
+          </div>
+
+          <p class="service__price">от 4000 р</p>
+
+          <div class="service__review">
+            <div class="service__stars stars">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
+             
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
+            </div>
+
+            <p class="service__count-review"> 4 </p>
+          </div>
+        </article>
+      </li> -->
+
+
+          <!-- <li>
+        <article class="service">
+          <img class="service__avatar" src="img/article1.png" alt="Аватар Иван">
+
+          <div class="service__present">
+            <h3 class="service__title">Фотораф</h3>
+            <p class="service__name">Иван</p>
+          </div>
+
+          <p class="service__price">от 4000 р</p>
+
+          <div class="service__review">
+            <div class="service__stars stars">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="Рейтинг специалиста 4 из 5">
+             
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star.svg" width="18" alt="">
+              <img class="stars__item" src="./img/star-o.svg" width="18" alt="">
+            </div>
+
+            <p class="service__count-review"> 4 </p>
+          </div>
+        </article>
+      </li> -->
         </ul>
       </div>
     </section>

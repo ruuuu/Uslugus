@@ -7,7 +7,8 @@ import { choicesController } from './modules/choicesController';
 import { avatarController } from './modules/avatarController';
 import { getCategory } from './modules/getCategory';
 import { renderList } from './modules/renderList';
-
+import { searchControl } from './modules/searchControl';
+import { myRendercategorySpecialts } from './modules/myRendercategorySpecialts';
 
 
 const init = () => {
@@ -77,10 +78,15 @@ const init = () => {
 
       const crp = avatarController({ inputFile: '.avatar__input', uploadResult: '.avatar__result' });              // .avatar__result контенер, где будет выводиться загруженная картинка    
 
-      getCategory();                                                    // получение категрий от сервера
+      getCategory();                                                    // получение категрий от сервера для боковго меню
 
       renderList();                                                     // отрисовка картчоек специалистов
+
+      searchControl();                                                  // отправка формы поиска
+
+      myRendercategorySpecialts();                                      //   отображение карточек спеуиалистовпосле выбора  из категрии  
 };
+
 
 
 init();

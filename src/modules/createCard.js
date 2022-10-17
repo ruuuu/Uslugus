@@ -1,6 +1,7 @@
 // создане карточки специалиста на главной станице:
 import { API_URL, directions } from "./const";
 import { store } from "./store";
+import { createStars } from "./createStars";
 
 
 export const createCard = (item) => {                                   // item это  {} - текущий специалист из data
@@ -26,7 +27,7 @@ export const createCard = (item) => {                                   // item 
 
       const serviceTitle = document.createElement('h3');
       serviceTitle.classList.add('service__title');
-      store.category.find((item) => (item.title === category).rus);  // пербирает  массив store.category и возвращает первый элемент удовелтворяющий условию и берем .rus
+      serviceTitle.textContent = store.category.find((item) => item.title === category).rus;  // пербирает  массив store.category и возвращает первый элемент удовелтворяющий условию и берем  у элемента свойство  .rus
 
 
 
@@ -43,7 +44,7 @@ export const createCard = (item) => {                                   // item 
 
       const serviceReview = document.createElement('div');
       serviceReview.classList.add('service__review');
-      serviceReview.textContent = 'Звезды';
+      //serviceReview.textContent = 'Звезды';
 
 
       const serviceCountReview = document.createElement('p');
@@ -51,31 +52,10 @@ export const createCard = (item) => {                                   // item 
       serviceCountReview.textContent = comments.length.toString();            // приводит число к строке
 
 
-      serviceReview.append(serviceCountReview);
+      serviceReview.append(createStars(comments), serviceCountReview);
 
       service.append(serviceAvatar, servicePresent, servicePrice, serviceReview);
       return serviceItem;                                               // <li>
 
 }
 
-` < li class="services__item" >
-< !--независмоя единица-- >
-      <article class="service">
-
-
-
-
-            <div class="service__review">
-                  <div class="service__stars stars">
-                        <img class="stars__item" src="./img/star.svg" alt="Рейтинг специалиста 4 из 5">
-                              <!-- у др img alt не заполням(для слепых людей)-->
-                              <img class="stars__item" src="./img/star.svg" alt="">
-                                    <img class="stars__item" src="./img/star.svg" alt="">
-                                          <img class="stars__item" src="./img/star.svg" alt="">
-                                                <img class="stars__item" src="./img/star-o.svg" alt="">
-                                                </div>
-
-                                                <p class="service__count-review"> 4 </p>
-                                          </div>
-                                    </article>
-                              </li>`
