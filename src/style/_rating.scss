@@ -1,0 +1,42 @@
+.rating {
+
+      display: flex;
+      gap: 2px; // расстоние между флекс элементами
+      color: transparent;
+
+
+
+      &:hover .rating__star {
+            color: #FFD600 !important; // перебивает стили, котрые написаны ниже, те самый тяжелый селектор
+      }
+
+
+
+      &__star {
+            // зведочка
+            cursor: pointer;
+
+            &:hover~.rating__star {
+                  // стиль для  зведочки, которая идет после .rating__star
+                  color: transparent !important; // перебивает стили, котрые написаны ниже, те самый тяжелый селектор
+            }
+      }
+
+
+
+      &[data-stars] {
+            //  для элементво у котрых есть атрибут data-stars
+            color: #FFD600;
+      }
+
+
+
+      &[data-stars='1'] .rating__star:nth-child(1)~.rating__star,
+      &[data-stars='2'] .rating__star:nth-child(2)~.rating__star,
+      &[data-stars='3'] .rating__star:nth-child(3)~.rating__star,
+      &[data-stars='4'] .rating__star:nth-child(4)~.rating__star,
+      &[data-stars='5'] .rating__star:nth-child(5)~.rating__star {
+            // стиль для звездочек котрая идет сразу после .rating__star:nth-child(x) 
+            color: transparent;
+      }
+}

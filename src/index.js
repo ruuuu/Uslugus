@@ -9,6 +9,8 @@ import { getCategory } from './modules/getCategory';
 import { renderList } from './modules/renderList';
 import { searchControl } from './modules/searchControl';
 import { myRendercategorySpecialts } from './modules/myRendercategorySpecialts';
+import { ratingController } from './style/ratingController';
+
 
 
 const init = () => {
@@ -85,6 +87,9 @@ const init = () => {
       searchControl();                                                  // отправка формы поиска
 
       myRendercategorySpecialts();                                      //   отображение карточек спеуиалистовпосле выбора  из категрии  
+
+      ratingController();                                               // выставляеn рейтинг в форме отправки отзыва
+
 };
 
 
