@@ -4,12 +4,14 @@ import { modalController } from './modules/modalController';         // ипмо
 import { selectController } from './modules/selectController';
 import { showPassword } from './modules/showPassword';
 import { choicesController } from './modules/choicesController';
-import { avatarController } from './modules/avatarController';
+
 import { getCategory } from './modules/getCategory';
 import { renderList } from './modules/renderList';
 import { searchControl } from './modules/searchControl';
 import { myRendercategorySpecialts } from './modules/myRendercategorySpecialts';
-import { ratingController } from './style/ratingController';
+import { ratingController } from './modules/ratingController';
+//import { signInConstroller } from './modules/sign';
+import { signUpConstroller } from './modules/sign';
 
 
 
@@ -78,7 +80,6 @@ const init = () => {
 
       choicesController();                                              //    дял выпадающих списков
 
-      const crp = avatarController({ inputFile: '.avatar__input', uploadResult: '.avatar__result' });              // .avatar__result контенер, где будет выводиться загруженная картинка    
 
       getCategory();                                                    // получение категрий от сервера для боковго меню
 
@@ -90,6 +91,8 @@ const init = () => {
 
       ratingController();                                               // выставляеn рейтинг в форме отправки отзыва
 
+
+      signUpConstroller();                                       // регитрация специалистач
 };
 
 

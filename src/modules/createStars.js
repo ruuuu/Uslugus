@@ -9,7 +9,7 @@ import star0SVG from '../img/star-o.svg';
 export const createStars = (comments) => {              // массив объектов comments = [ {name: Артур, stars:4, text: "kjhkjg"}, {name: Руфина, stars:1, text: "Привет"}, {{name: Алия, stars:3, text: "Добро"} ]
 
       const stars = Math.round(comments.reduce((acc, item) => item.stars + acc, 0) / comments.length) || 0;            // перебираем массив comments, передаем коллбэк функицю, item -  это текущий комментарий
-      console.log('stars ', stars);
+      //console.log('stars ', stars);
 
       const wrapper = document.createElement('div');
       wrapper.classList.add('service__stars');

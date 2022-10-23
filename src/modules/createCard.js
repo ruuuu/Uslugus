@@ -4,9 +4,9 @@ import { store } from "./store";
 import { createStars } from "./createStars";
 
 
-export const createCard = (item) => {                                   // item это  {} - текущий специалист из data
+export const createCard = (item) => {                                   // item это  {name: '', surname: '', phone: '', email: ''. about: '', category: ''^ avatar: ''} - текущий специалист из data
 
-      const { avatar, category, comments, direction, id, name, surname, price } = item;
+      const { avatar, category, comments, direction, id, name, surname, price } = item;                     // дестурктутризация
 
       const serviceItem = document.createElement('li');                 // <li></li>
       serviceItem.classList.add('services__item');
