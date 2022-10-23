@@ -251,7 +251,6 @@ function deleteItems(itemId) {
 function addComment(itemId, comment) {
   const errors = [];
 
-
   if (!comment.name) {
     errors.push({ field: "name", message: "Нет имени" });
   }
@@ -260,12 +259,12 @@ function addComment(itemId, comment) {
     errors.push({ field: "phone", message: "Нет телефона" });
   }
 
-  if (!comment.comment) {
-    errors.push({ field: "name", message: "Нет комментария" });
+  if (!comment.text) {
+    errors.push({ field: "text", message: "Нет комментария" });
   }
 
-  if (!comment.star) {
-    errors.push({ field: "star", message: "Нет оценки" });
+  if (!comment.stars) {
+    errors.push({ field: "stars", message: "Нет оценки" });
   }
 
   if (errors.length) throw new ApiError(422, { errors });
@@ -391,6 +390,7 @@ module.exports = server = createServer(async (req, res) => {
       console.log(`GET ${URI_PREFIX}/{id} - получить услуги по его ID`);
       console.log(`PATCH ${URI_PREFIX}/{id} - изменить услугу с ID, в теле запроса нужно передать объект`);
       console.log(`DELETE ${URI_PREFIX}/{id} - удалить услугу по ID`);
+      console.log(`POST ${URI_PREFIX}/comment/{id} - добавить комментарий`);
     }
   })
   .listen(PORT);
