@@ -13,7 +13,7 @@ export const signInConstroller = () => {
 
 
 //  Регистрация специалиста:
-export const signUpConstroller = () => {
+export const signUpConstroller = (cb) => {                  // тк форма не имеет отношения к мод окну, она просто в нем находится, то передаем коллбэк cb котрый управляет формой. Коллбэк закрывате мод окно
 
       const form = document.querySelector('.form__sign-up');
 
@@ -21,7 +21,7 @@ export const signUpConstroller = () => {
 
 
       form.addEventListener('submit', async (evt) => {
-            evt.preventDefault();                                                          // чобы после отвправки даных не было презагрукзи страницы(действие по улочанию)
+            evt.preventDefault();                                                         // чобы после отвправки даных не было презагрукзи страницы(действие по улочанию)
 
             if (form.password[0].value !== form.password[1].value) {                      // form.password получим поле, где password это значение атрибута name у поля <input type="password" name="password">
                   console.log('Пароли не совпадают');
@@ -57,7 +57,7 @@ export const signUpConstroller = () => {
 
             const dataResponse = await postData(`${API_URL}/api/service/signup`, data, 'post');                                 // возвращает промис, чтбы был не промис, ставим await. Отправлянем данные  формы(data) на сервер  по урлу /api/service/signup , запрос на регистрацию
 
-            console.log('dataResponse ', dataResponse); // {name: 'Руина', surname: 'Давлтеова', phone: '892345433234', email: 'ryufhbm@mail.ru'}
+            console.log('dataResponse ', dataResponse);                       // { name: 'Руфина',  surname: 'Давлтеова',  phone: '892345433234',  email: 'ryufhbm@mail.ru' }
 
             if (dataResponse.errors) {                                              // если с серевр пришла ошибка
                   console.log(dataResponse.errors);
@@ -65,10 +65,12 @@ export const signUpConstroller = () => {
             }
 
             const servicesList = document.querySelector('.services__list');                     // ul спеиалистов
-            servicesList.append(createCard(dataResponse));                                      // добавляем  веркту карты специалиста в спсиок ul
+            servicesList.append(createCard(dataResponse));                                      // добавляем  верстку карточку специалиста в спсиок ul
 
             form.reset();                                                                       // очищаем поля формы
 
-            crp.hideAvatar();                                                                   // очищаем аватар
+            crp.hideAvatar();                                                                   // очищаем контенейр для аватара у формы
+
+            cb(); // вызыво коллбэк функии , это функция котрая закрывает мод окно регитрации
       });
 };

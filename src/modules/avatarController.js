@@ -1,4 +1,4 @@
-// загрузка аватарки
+// загрузка аватарки в форме Регитрация
 
 import Croppie from 'croppie';            // импортурем установленный плагин https://foliotek.github.io/Croppie/
 import 'croppie/croppie.css';
@@ -18,9 +18,11 @@ export const avatarController = ({ inputFile, uploadResult }) => {
 
       crp.hideAvatar = () => {
             avatar.style.display = 'none';
-      }
+      };
 
       crp.hideAvatar();
+
+
 
       // считываем загруженный файл:
       const readFile = ({ target: input }) => {                               // evt -  объект события, у негое сть свойтсов target. Либо можно сразу передать так: {target}
@@ -40,7 +42,6 @@ export const avatarController = ({ inputFile, uploadResult }) => {
 
 
       upload.addEventListener('change', readFile);               // как только картинка поменяется, тогда сработает событие change.  Загрузка файла 
-
 
       return crp;
 };
