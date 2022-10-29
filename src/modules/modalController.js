@@ -35,26 +35,26 @@ export const modalController = ({                     // modal - селекто�
             closeModal: (evt) => {                         //  закрытие окна, evt-объект события, у него есть свойтсов target
                   const target = evt.target;                      //  получаем элемнет на котрый нажали
 
-                  if (target === modalElem || (btnClose && target.closest(btnClose)) || evt.code === 'Escape' || evt.type === 'submit') {
+                  if (target === modalElem || (btnClose && target.closest(btnClose)) || evt.code === 'Escape' || evt.type === 'submit') {                   //  evt.type тип события
 
                         modalElem.style.opacity = 0;
 
                         setTimeout(() => {
                               modalElem.style.visibility = 'hidden';                //  скрываем окно, действие выполнится через врмя time
+                              data.handlerCloseModal({ modalElem });
                         }, time); // 300 милисекунд
 
-                        window.removeEventListener('keydown', data.closeModal);          //  снимаем обработчик с объекта window(объект браузера), чтобы после закрытия окна лишний раз не срабатывало
+                        window.removeEventListener('keydown', data.closeModal);          //  снимаем обработчик с объекта window(объект браузера), чтобы после закрытия окна лишний раз не срабатывало событие
                   }
             },
 
 
-            openModal: async () => {                                    //  открытие окна
-                  await data.handlerOpenModal();                             // эта фкнция может запрашивать данные, поэтому на асинхронная, дожидаемся когда будет резульатт handlerOpenModal()
+            openModal: async (handler) => {       //  handler это элемент с классом <artcile class="service"> - спеиалист                                //  открытие окна
+                  await data.handlerOpenModal({ handler, modalElem });                             // эта фкнция может запрашивать данные, поэтому на асинхронная, дожидаемся когда будет резульатт handlerOpenModal()
                   modalElem.style.visibility = 'visible';
                   modalElem.style.opacity = 1;
                   window.addEventListener('keydown', data.closeModal);             //  keydown это событие  нажатие на  клавишу, escape, по нажатию вызовется closeModal
             },
-
 
       }
 
@@ -63,16 +63,11 @@ export const modalController = ({                     // modal - селекто�
 
 
 
-
-
-
-
-
-
       if (parrentBtns) {
             hadlerElems.addEventListener('click', ({ target }) => {
-                  if (target.closest(btnOpen)) {                        // если у target или его родителя есть элемент с классом btnOpen(.service)
-                        data.openModal();
+                  const handler = target.closest(btnOpen); // если у target или его родителя есть элемент с классом btnOpen(.service), то вернет этот элемент
+                  if (handler) {
+                        data.openModal(handler);
                   }
             });
       }

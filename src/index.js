@@ -10,46 +10,41 @@ import { renderList } from './modules/renderList';
 import { searchControl } from './modules/searchControl';
 import { myRendercategorySpecialts } from './modules/myRendercategorySpecialts';
 import { ratingController } from './modules/ratingController';
-//import { signInConstroller } from './modules/sign';
-import { signUpConstroller } from './modules/sign';
+import { signUpConstroller, signInConstroller } from './modules/sign';
+
 
 
 
 const init = () => {
-      // для мод окна Авторизация вызываем:
-      modalController({
+      // окрытие мод окна Авторизация, вызываем чоыб окно закрывалось после авторизации:
+      const eventModalSignIn = modalController({
             modal: '.modal__sign-in',
             btnOpen: '.header__auth-btn--sign-in',
             btnClose: '.modal__close'
       });
 
 
-      // для мод окна Регитрация вызываем:
-      modalController({
+      // для мод окна Регитрация вызываемвызываем чоыб окно закрывалось после регитрации:
+      const eventModalSignUp = modalController({
             modal: '.modal__sign-up',
             btnOpen: '.header__auth-btn--sign-out',
             btnClose: '.modal__close',
-
-            handlerCloseModal: () => {
-                  const form = document.querySelector('.form__sign-up');
-                  form.reset();
-            },
       });
 
 
-      // для мод окна Person(Отзывы) выызваем, функция возвращает объект
+      // открытие  мод окна Person(Отзывы) выызваем, функция возвращает объект
       const modalPerson = modalController({
             modal: '.modal__person',
             btnOpen: '.service',
             parrentBtns: '.services__list',                  //  передаем parrentBtns: '.services__list', чтобы сделать делегирование(оно нужно вслучае  если добавим еще элементы спсика, то и на них  чтоб обработчик клика  повесился)
             btnClose: '.modal__close',
 
+            handlerOpenModal: async ({ handler }) => {                 //    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } нужен чтобы id спеицалиста
+                  console.log('handler ', { handler });                 // элемент с классом <artcile class="service"> - спеиалист
+                  const data = await getData(`${API_URL}/api/service/${handler.dataset.id}`)                // получае специалиста { name: 'Алексей', surname: 'Игнатов', category: 'photographer', phone: '+79145236123', email: 'ignatov.a@mail.com', … }
 
+                  console.log(' data ', data);
 
-            handlerOpenModal: async () => {                 //    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься
-                  const data = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-                        .then(response => response.json())
-                  // .then(json => console.log(json))
 
                   const comments = document.querySelectorAll('.review__text');            // псевдомассив NodeList ['.review__text', '.review__text', '.review__text']
 
@@ -77,6 +72,7 @@ const init = () => {
             openBtn: '.category__title',
             openBlock: '.category__list',
             closeBtn: '.category__btn',
+
             handlerChange: (value) => {
                   console.log(value);
             }
@@ -99,7 +95,8 @@ const init = () => {
       ratingController();                                               // выставляеn рейтинг в форме отправки отзыва
 
 
-      signUpConstroller();                                       // регитрация специалистач
+      signUpConstroller(eventModalSignUp.closeModal);                                       // регитрация специалистач
+      signInConstroller(eventModalSignIn.closeModal);                                              // авторзиация
 };
 
 

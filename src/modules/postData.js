@@ -1,4 +1,4 @@
-// отправляем даннеы  формы регитрации на сервер:
+// отправляем даннеы  формы регитрации/авторизации на сервер:
 import { customError } from "./customError";
 
 
@@ -10,7 +10,7 @@ export const postData = async (url, data, method = 'POST') => {              // 
                   body: JSON.stringify(data),                             // JSON.stringify(data) преборазовываем в  JSON
             });
 
-            if (response.ok) {
+            if (response.ok || response.status !== 404) {
                   //console.log('отет от сервера ', await response.json());
                   return await response.json();                                     // получаем ответ от сервера: response.json() превращаем из json  в объект, т к получаем отвте от сервера, то ставим await
 
