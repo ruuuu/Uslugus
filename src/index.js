@@ -11,8 +11,9 @@ import { searchControl } from './modules/searchControl';
 import { myRendercategorySpecialts } from './modules/myRendercategorySpecialts';
 import { ratingController } from './modules/ratingController';
 import { signUpConstroller, signInConstroller } from './modules/sign';
-
-
+import { getData } from './modules/getData';
+import { API_URL } from './modules/const';
+import { renderPerson } from './modules/renderPerson';
 
 
 const init = () => {
@@ -32,18 +33,21 @@ const init = () => {
       });
 
 
-      // открытие  мод окна Person(Отзывы) выызваем, функция возвращает объект
+      // открытие  мод окна Специасит, функция возвращает объект
       const modalPerson = modalController({
             modal: '.modal__person',
             btnOpen: '.service',
             parrentBtns: '.services__list',                  //  передаем parrentBtns: '.services__list', чтобы сделать делегирование(оно нужно вслучае  если добавим еще элементы спсика, то и на них  чтоб обработчик клика  повесился)
             btnClose: '.modal__close',
 
-            handlerOpenModal: async ({ handler }) => {                 //    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } нужен чтобы id спеицалиста
+            handlerOpenModal: async ({ handler, modalElem }) => {                 // при открытии окна вызывается эта функия,    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } нужен чтобы знать id спеицалиста
                   console.log('handler ', { handler });                 // элемент с классом <artcile class="service"> - спеиалист
                   const data = await getData(`${API_URL}/api/service/${handler.dataset.id}`)                // получае специалиста { name: 'Алексей', surname: 'Игнатов', category: 'photographer', phone: '+79145236123', email: 'ignatov.a@mail.com', … }
 
-                  console.log(' data ', data);
+                  //console.log('specialist ', data); 
+
+                  renderPerson(modalElem, data);                                   // вызов фунции заполнения мод окна Person, modalElem- родитель куда отрисуем веркту специалиста
+
 
 
                   const comments = document.querySelectorAll('.review__text');            // псевдомассив NodeList ['.review__text', '.review__text', '.review__text']
