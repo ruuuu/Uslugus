@@ -34,6 +34,12 @@
             background-color: #fff;
             border-radius: 8px;
             min-height: 95px; // для преполнения текстом
+
+
+            &:nth-child(n+4) {
+                  // чтобы 4 ый  комментарий(отзыв)  и больше скрывались
+                  display: none;
+            }
       }
 
 
@@ -103,6 +109,14 @@
             }
 
       }
+
+
+      &__show-all {
+            .review__item {
+                  display: grid;
+            }
+      }
+
 
 
 

@@ -3,11 +3,12 @@ import { createElement } from "./createElemet";
 import { API_URL, directions } from "./const";
 import { store } from "./store";
 import { createStars } from "./createStars";
+import { createReview } from "./createReview";
 
 
-export const renderPerson = (parent, data) => {  //  parent -родитлеьский эле-нт(.modal__person) куда отрисуем верстку специалиста, data = {}
+export const renderPerson = (parent, data) => {  //  parent -родитлеьский эле-нт(.modal__person) куда отрисуем верстку специалиста, data = {name: 'Алексей', surname: 'Игнатов', category: 'photographer', phone: '+79145236123', email: 'ignatov.a@mail.com', …} -специалист
 
-      parent.textContent = '';                  //  очищает содердимое мод окна
+      parent.textContent = '';                        //  очищает содержимое мод окна
 
       console.log('data of specialist ', data);
 
@@ -48,12 +49,27 @@ export const renderPerson = (parent, data) => {  //  parent -родитлеьс�
       // О себе
       const about = createElement('div', { className: 'person__about about' }, container);
       createElement('h3', { className: 'about__title', textContent: 'О себе' }, about);
-      createElement('p', { className: 'about__text', textContent: data.about }, about);
+      createElement('p', { className: 'about__text', textContent: data.about, style: 'white-space: pre-line;' }, about);
 
       // ОТзывы
       const review = createElement('div', { className: 'person__review about__review review' }, container);
       createElement('h3', { className: 'review__title', textContent: 'Отзывы' }, review);
 
-      // review__list
-      const reviewList = createElement('ul', { className: 'review__list' }, review);
+      if (data.comments.length) {
+            review.append(createReview(data.comments));                       // createReview вернет верстку  отзывов: <ul><li></li> <li></li> <li></li> <li></li></ul>
+            if (data.comments.length > 3) {
+                  const btn = createElement('button', { className: 'review__open review__open--list ', textContent: 'Все отзывы' }, review);         // Кнпка Развернут все
+                  btn.addEventListener('click', () => {
+                        review.classList.add('review__show-all');                   // показываем все отзывы
+                        btn.remove();
+                  });
+            }
+            else {
+                  createElement('p', { className: '', textContent: 'Пока нет отзывов' }, review);
+            }
+      };
+
+
+
+
 };

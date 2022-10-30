@@ -6,9 +6,10 @@ import star0SVG from '../img/star-o.svg';
 
 
 
-export const createStars = (comments) => {              // массив объектов comments = [ {name: Артур, stars:4, text: "мой комметарий"}, {name: Руфина, stars:1, text: "мой комментарий"}, {name: Алия, stars:3, text: "мой комментарий"} ]
+export const createStars = (commentsOrStars) => {              // массив объектов comments = [ {name: Артур, stars:4, text: "мой комметарий"}, {name: Руфина, stars:1, text: "мой комментарий"}, {name: Алия, stars:3, text: "мой комментарий"} ]
+      // Array.isArray(commentsOrStars) вернт ttue/false, проверяет ялвяется ли массив commentsOrStars массивом
 
-      const stars = Math.round(comments.reduce((acc, item) => item.stars + acc, 0) / comments.length) || 0;            // перебираем массив comments, передаем коллбэк функицю, item -  это текущий комментарий
+      const stars = Array.isArray(commentsOrStars) ? Math.round(commentsOrStars.reduce((acc, item) => item.stars + acc, 0) / commentsOrStars.length) || 0 : commentsOrStars;            // перебираем массив comments, передаем коллбэк функицю, item -  это текущий комментарий
       //console.log('stars ', stars);
 
       const wrapper = document.createElement('div');
