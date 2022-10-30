@@ -16,8 +16,12 @@ import { API_URL } from './modules/const';
 import { renderPerson } from './modules/renderPerson';
 
 
-const init = () => {
-      // окрытие мод окна Авторизация, вызываем чоыб окно закрывалось после авторизации:
+const init = async () => {
+
+      await getCategory();                                                    // получение категрий от сервера для боковго меню(await  стаивм ттк  в это метода запрос на сервер происходит, дожидаемся ответа от сервера)
+      renderList();                                                         // отрисовка картчоек специалистов
+
+      // оnкрытие мод окна Авторизация, вызываем чоыб окно закрывалось после авторизации:
       const eventModalSignIn = modalController({
             modal: '.modal__sign-in',
             btnOpen: '.header__auth-btn--sign-in',
@@ -88,9 +92,9 @@ const init = () => {
       choicesController();                                              //    дял выпадающих списков
 
 
-      getCategory();                                                    // получение категрий от сервера для боковго меню
 
-      renderList();                                                     // отрисовка картчоек специалистов
+
+
 
       searchControl();                                                  // отправка формы поиска
 

@@ -1,4 +1,5 @@
-// создане карточки специалиста на главной станице:
+// создане карточки специалиста (вспсике спецов):
+
 import { API_URL, directions } from "./const";
 import { store } from "./store";
 import { createStars } from "./createStars";

@@ -10,7 +10,7 @@ export const getCategory = async () => {                          // стави�
 
       console.log('categories ', category);
 
-      store.category = category;
+      store.category = category; // заполнили массив store.category (он в файле store.js)
 
 
 };
