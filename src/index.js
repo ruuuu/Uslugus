@@ -98,10 +98,7 @@ const init = async () => {
 
       searchControl();                                                  // отправка формы поиска
 
-      myRendercategorySpecialts();                                      //   отображение карточек спеуиалистовпосле выбора  из категрии  
-
-      ratingController();                                               // выставляеn рейтинг в форме отправки отзыва
-
+      myRendercategorySpecialts();                                      //   отображение карточек спеуиалистов после выбора  из категрии(левое меню)  
 
       signUpConstroller(eventModalSignUp.closeModal);                                       // регитрация специалистач
       signInConstroller(eventModalSignIn.closeModal);                                              // авторзиация

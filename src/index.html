@@ -419,7 +419,7 @@
             </li>
           </ul>
 
-          <!-- <button class="review__open review__open--list">Все отзывы</button>  этe нпоку рисуем с помощью JS -->
+          <!-- <button class="review__open review__open--list">Все отзывы</button>  этe кнпоку рисуем с помощью JS, она появится если есть больше трех отзввов -->
         </div>
 
 
@@ -427,7 +427,7 @@
         <form class="person__form form form--add-review">
           <fieldset class="form__fieldset form__wrapper-person">
             <label class="form__label">
-              <!-- у label for для связывания здесь не нужно, тк input  внутри label-->
+              <!-- у label атрибут  for для связывания здесь не нужно, тк input  внутри label-->
               <span class="form__text">Имя</span>
               <input class="form__input" type="text">
             </label>
@@ -484,12 +484,13 @@
               </svg>
 
               <input class="rating__input" type="hidden" name="rating">
-              <!--  type="hidden" знаичт поле скрытое, указываем name="rating" тк это поле будем отпралять на сервер. Пр нажатиии на звездчку в этот input, в атрибут value запишем значение атрибута data-rating-->
+              <!--  type="hidden" знаичт поле скрытое, указываем name="rating" тк это поле будем отпралять на сервер. При нажатиии на звездчку в этот input, в атрибут value запишем значение атрибута data-rating-->
             </div>
 
             <button class="form__submit">Опубликовать отзыв</button>
           </div>
         </form>
+
 
         <button class="modal__close">
           <!-- кнпока закрытия крестик в модалке-->
