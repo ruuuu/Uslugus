@@ -14,8 +14,6 @@ export const signInConstroller = (callback) => {
 
       form.addEventListener('submit', async (evt) => {
             evt.preventDefault();
-
-
             const formData = new FormData(form);   // formData = [[login: 'rufinka_91@mail.ru' ],  [password: 'зфыыцщкв' ]]
 
             const data = Object.fromEntries(formData);
@@ -32,8 +30,8 @@ export const signInConstroller = (callback) => {
                   return;                                                           // далее код не будет выполнться
             }
 
-            callback(evt);          // вызыво коллбэк функии(closeModal) , это функция котрая закрывает мод окно авториации
-            auth(dataResponse);
+            callback(evt);                      // вызыво коллбэк функии(closeModal) , это функция котрая закрывает мод окно авториации
+            auth(dataResponse);                 // меням верстку блока .header__auth, после соавризации
 
       });
 
@@ -47,9 +45,6 @@ export const signInConstroller = (callback) => {
 export const signUpConstroller = (cb) => {                  // тк форма не имеет отношения к мод окну, она просто в нем находится, то передаем коллбэк cb котрый управляет формой. Коллбэк закрывате мод окно
 
       const headerAuth = document.querySelector('.header__auth');
-      const authBlock = document.querySelector('.authBlock');
-      headerAuth.style.display = 'block';
-      authBlock.style.display = 'none';
 
       const form = document.querySelector('.form__sign-up');
 

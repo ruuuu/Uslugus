@@ -8,7 +8,7 @@ export const getCategory = async () => {                          // стави�
 
       const category = await getData(`${API_URL}/api/category`);             // await, тк ждем когда завершится асинхроная функци getData, получаем ответ от сервеа [{}, {} ,{}, {}]
 
-      console.log('categories ', category);
+      console.log('categories ', category);           // [ {title: 'photographer', rus: 'Фотограф'}, {title: 'masseur', rus: 'Массажист'}, {title: 'makeup', rus: 'Визажист'}, {title: 'handyman', rus: 'Муж на час'}, {title: 'manicurist', rus: 'Мастер маникюра'}, {title: 'plumber', rus: 'Сантехник'} ]
 
       store.category = category; // заполнили массив store.category (он в файле store.js)
 
