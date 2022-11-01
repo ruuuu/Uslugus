@@ -1,9 +1,11 @@
-export const modalController = ({                     // modal - селектор мод окна, по нажатию на мод окно оно откроется, btnOpen- селектор кнпоки по нажаьию на котрую открывается модлка, btnClose-селектор кнпоки закрывтия модалки
+// по нажатию на кнпоку btnOpen откроется мод окно modal и вызовется фукнуия  handlerOpenModal. По наажтию на кнпоку btnClose,  вызовется фукнция handlerCloseModal тем самым  окно закроется:
+
+export const modalController = ({                     // modal - селектор мод окна, по нажатию на btnOpen мод окно   откроется, btnOpen- селектор кнпоки по нажаьию на котрую открывается модлка, btnClose-селектор кнпоки закрывтия модалки
       modal,
       btnOpen,
       btnClose,
       time = 300,
-      parrentBtns,                                    // родитель  ul(.services__list) для кнопок(li), нужен для делегирования. Вещаем обработчик клик ана родителя 
+      parrentBtns,                                    // родитель  ul(.services__list) для кнопок(li), нужен для делегирования. Вешаем обработчик клика на родителя parrentBtns
       handlerOpenModal = () => { },
       handlerCloseModal = () => { },
 }) => {
@@ -22,17 +24,21 @@ export const modalController = ({                     // modal - селекто�
       const data = {
             handlerOpenModal,    // функция
 
+
             handlerCloseModal,    // функция
+
 
             onOpenModal(handlerOpenModal) {
                   data.handlerOpenModal = handlerOpenModal;
             },
 
+
             onCloseModal(handlerCloseModal) {
                   data.handlerCloseModal = handlerCloseModal;
             },
 
-            closeModal: (evt) => {                         //  закрытие окна, evt-объект события, у него есть свойтсов target
+
+            closeModal: (evt) => {                                //  закрытие окна, evt-объект события, у него есть свойтсов target
                   const target = evt.target;                      //  получаем элемнет на котрый нажали
 
                   if (target === modalElem || (btnClose && target.closest(btnClose)) || evt.code === 'Escape' || evt.type === 'submit') {                   //  evt.type тип события
@@ -49,7 +55,7 @@ export const modalController = ({                     // modal - селекто�
             },
 
 
-            openModal: async (handler) => {       //  handler это элемент с классом <artcile class="service"> - спеиалист                                //  открытие окна
+            openModal: async (handler) => {                                         // откртыие мод окна,  handler это элемент с классом <artcile class="service"> - спеиалист                                //  открытие окна
                   await data.handlerOpenModal({ handler, modalElem });                             // эта фкнция может запрашивать данные, поэтому на асинхронная, дожидаемся когда будет резульатт handlerOpenModal()
                   modalElem.style.visibility = 'visible';
                   modalElem.style.opacity = 1;
@@ -63,9 +69,9 @@ export const modalController = ({                     // modal - селекто�
 
 
 
-      if (parrentBtns) {
+      if (parrentBtns) {                  // родитель(ul) всех кнопок-спеиалистов 
             hadlerElems.addEventListener('click', ({ target }) => {
-                  const handler = target.closest(btnOpen); // если у target или его родителя есть элемент с классом btnOpen(.service), то вернет этот элемент
+                  const handler = target.closest(btnOpen);                    // если у target или его родителя есть элемент с классом btnOpen(.service), то вернет этот элемент
                   if (handler) {
                         data.openModal(handler);
                   }
@@ -75,7 +81,6 @@ export const modalController = ({                     // modal - селекто�
             hadlerElems.forEach(btn => {
                   btn.addEventListener('click', data.openModal);                   // по нажатию на кнопку btn, вызовется фукнция openModal
             });
-
       }
 
 

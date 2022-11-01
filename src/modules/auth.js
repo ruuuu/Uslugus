@@ -1,6 +1,8 @@
 import { store } from "./store";
 import { API_URL } from "./const";
 import { createElement } from "./createElemet";
+import { modalController } from "./modalController";
+import { getData } from "./getData";
 
 
 // после авторзиации меняется верка блока .header__auth:
@@ -31,20 +33,28 @@ export const auth = (data) => {           // ответ от сервера  dat
   //     `;
 
 
-  // либо чеерзнашметод  createElement:
+  // либо чеерз наш метод  createElement:
   createElement('img', { src: `${API_URL}/${store.user.avatar}`, alt: `${categoryRus} ${store.user.name}`, className: 'auth__avatar' }, headerAuth);
   createElement('p', { className: 'auth__name', textContent: store.user.name }, headerAuth);
   createElement('p', { className: 'auth__category', textContent: categoryRus }, headerAuth);
   createElement('button', { className: 'auth__btn-edit', textContent: 'Изменить услугу' }, headerAuth);
 
+  // редаткирование специалиста:
   modalController({
-    modal: '.modal__sign-in',
-    btnOpen: '.header__auth-btn--sign-in',
+    modal: '.modal__sign-up',               // по нажатию на кнопку .auth__btn-edit, открывется окно регитарции спец-та .modal__sign-up и запускается фукнция handlerOpenModal
+    btnOpen: '.auth__btn-edit',             //  жмем на кнопку Изменить улугу
     btnClose: '.modal__close',
-    // родитель  ul(.services__list) для кнопок(li), нужен для делегирования. Вещаем обработчик клик ана родителя 
-    handlerOpenModal: async () => {       // тк получаем данные с сервера после авториации
+    handlerOpenModal: async () => {                 // async  тк получаем данные с сервера после авториации
+      const data = await getData(`${API_URL}/api/service/${store.user.id}`);           //   получаем специалиста{ name: 'Алексей',  surname: 'Игнатов',  category: 'photographer',  phone: '+79145236123',  email: 'ignatov.a@mail.com', … } по его id
+      const form = document.querySelector('.form__sign-up');
+      form.name.value = data.name;                        //  заполняем поле с <input name="name">
+      form.surname.value = data.surname;
+      form.phone.value = data.phone;
+      form.email.value = data.email;
+      form.price.value = data.price;
+      form.about.value = data.about;
 
     },
-    handlerCloseModal: ,
+    //handlerCloseModal: ,
   })
 };

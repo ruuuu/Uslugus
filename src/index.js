@@ -37,16 +37,16 @@ const init = async () => {
       });
 
 
-      // открытие  мод окна Специасит, функция возвращает объект
+      // по нажатию на кнпоку .service,  открывается  мод окно(.modal__person) Специасит,и запувкается функция handlerOpenModal. А по нажатию на кнпоку .modal__close, окно закроется
       const modalPerson = modalController({
             modal: '.modal__person',
             btnOpen: '.service',
             parrentBtns: '.services__list',                  //  передаем parrentBtns: '.services__list', чтобы сделать делегирование(оно нужно вслучае  если добавим еще элементы спсика, то и на них  чтоб обработчик клика  повесился)
             btnClose: '.modal__close',
 
-            handlerOpenModal: async ({ handler, modalElem }) => {                 // при открытии окна вызывается эта функия,    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } нужен чтобы знать id спеицалиста
-                  console.log('handler ', { handler });                 // элемент с классом <artcile class="service"> - спеиалист
-                  const data = await getData(`${API_URL}/api/service/${handler.dataset.id}`)                // получае специалиста { name: 'Алексей', surname: 'Игнатов', category: 'photographer', phone: '+79145236123', email: 'ignatov.a@mail.com', … }
+            handlerOpenModal: async ({ handler, modalElem }) => {                  // при открытии окна вызывается эта функия,    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } нужен чтобы знать id спеицалиста
+                  console.log('handler ', { handler });                             // элемент с классом <artcile class="service"> - спеиалист
+                  const data = await getData(`${API_URL}/api/service/${handler.dataset.id}`);                // получаем специалиста { name: 'Алексей',  surname: 'Игнатов',  category: 'photographer',  phone: '+79145236123',  email: 'ignatov.a@mail.com', … } по его id
 
                   //console.log('specialist ', data); 
 
@@ -90,10 +90,6 @@ const init = async () => {
       showPassword();
 
       choicesController();                                              //    дял выпадающих списков
-
-
-
-
 
 
       searchControl();                                                  // отправка формы поиска
