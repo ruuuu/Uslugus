@@ -420,18 +420,18 @@
             <label class="form__label">
               <!-- у label атрибут  for для связывания здесь не нужно, тк input  внутри label-->
               <span class="form__text">Имя</span>
-              <input class="form__input" type="text">
+              <input class="form__input" type="text" name="name">
             </label>
 
             <label class="form__label">
               <span class="form__text">Телефон</span>
-              <input class="form__input" type="text">
+              <input class="form__input" type="text" name="phone">
             </label>
           </fieldset>
 
           <label class="form__label form__label--personTextarea">
             <span class="form__text">Комментарий</span>
-            <textarea class="form__textarea" name=""></textarea>
+            <textarea class="form__textarea" name="text" name="text"></textarea>
           </label>
 
 
@@ -474,7 +474,7 @@
                   stroke="#FFD600" />
               </svg>
 
-              <input class="rating__input" type="hidden" name="rating">
+              <input class="rating__input" type="hidden" name="stars">
               <!--  type="hidden" знаичт поле скрытое, указываем name="rating" тк это поле будем отпралять на сервер. При нажатиии на звездчку в этот input, в атрибут value запишем значение атрибута data-rating-->
             </div>
 

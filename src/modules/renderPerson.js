@@ -71,7 +71,7 @@ export const renderPerson = (parent, data) => {    //  parent -родитлеь�
             }
       };
 
-      //form
+      //form Отсавть отзыв:
       const formReview = createElement('form', { className: 'person__form form form--add-review' }, container);
 
       const fieldset = createElement('fieldset', { className: 'form__fieldset form__wrapper-person' }, formReview);
@@ -111,8 +111,8 @@ export const renderPerson = (parent, data) => {    //  parent -родитлеь�
             `;
       }
 
-      // rating__input звездоки к отзыву:
-      const ratingInput = createElement('input', { className: 'rating__input', type: 'hidden', name: 'rating' }, rating);
+      // rating__input звездочки к отзыву:
+      const ratingInput = createElement('input', { className: 'rating__input', type: 'hidden', name: 'stars' }, rating);
 
       ratingController(rating, ratingInput);                // проставлеn у скрытого поля дата-атрбит data-rating
 

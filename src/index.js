@@ -14,6 +14,7 @@ import { signUpConstroller, signInConstroller } from './modules/sign';
 import { getData } from './modules/getData';
 import { API_URL } from './modules/const';
 import { renderPerson } from './modules/renderPerson';
+import { postData } from './modules/postData';
 
 
 const init = async () => {
@@ -67,11 +68,30 @@ const init = async () => {
                                     comment.classList.toggle('review__text--open');
                                     button.textContent = comment.classList.contains('review__text--open') ? 'Свернуть' : 'Развернуть';
                               });
-
                         }
                   });
 
 
+                  // форма отправки отзыва: 
+                  const formReview = document.querySelector('.form--add-review');
+
+                  formReview.addEventListener('submit', async (evt) => {  // событие отправки данных формы
+                        evt.preventDefault();
+                        const formData = new FormData(formReview);   // formData = [[login: 'rufinka_91@mail.ru' ],  [password: 'зфыыцщкв' ]]
+
+                        const data = Object.fromEntries(formData);
+                        console.log('data comment ', data);
+                        // в итге  data = {
+                        // name: "Davletova Rufina"
+                        // phone: "89274435637"
+                        // stars: "1"
+                        // text: "текст отзыва"
+                        // }
+
+                        const dataResponse = await postData(`${API_URL}/api/service/comment/${handler.dataset.id}`, data, 'post');             // запрос авторизации
+                        console.log('dataResponse in leave commtnt: ', dataResponse);
+
+                  });
 
             }
       });
@@ -91,12 +111,12 @@ const init = async () => {
 
       showPassword();
 
-      choicesController();                                              //    дял выпадающих списков
+      choicesController();                                              //    для выпадающих списков
 
 
       searchControl();                                                  // отправка формы поиска
 
-      myRendercategorySpecialts();                                      //   отображение карточек спеуиалистов после выбора  из категрии(левое меню)  
+      myRendercategorySpecialts();                                      //   отображение карточек специалистов после выбора  из категрии(левое меню)  
 
       signUpConstroller(eventModalSignUp.closeModal);                                       // регитрация специалистач
       signInConstroller(eventModalSignIn.closeModal);                                              // авторзиация
