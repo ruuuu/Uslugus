@@ -37,7 +37,7 @@ const init = async () => {
       });
 
 
-      // по нажатию на кнпоку .service,  открывается  мод окно(.modal__person) Специасит,и запувкается функция handlerOpenModal. А по нажатию на кнпоку .modal__close, окно закроется
+      // по нажатию на кнпоку .service(карточка спеуиалиста),  открывается  мод окно(.modal__person) Специасит,и запувкается функция handlerOpenModal. А по нажатию на кнпоку .modal__close, окно закроется
       const modalPerson = modalController({
             modal: '.modal__person',
             btnOpen: '.service',
@@ -62,7 +62,7 @@ const init = async () => {
                               button.textContent = 'Развернуть';
                               comment.after(button);                         // добавили кнопку  button(Развернуть)  после comment
 
-                              button.addEventListener('click', () => {      // по нажатию на кнкоу Равзернуть
+                              button.addEventListener('click', () => {      // по нажатию на кнкоу Развернуть
 
                                     comment.classList.toggle('review__text--open');
                                     button.textContent = comment.classList.contains('review__text--open') ? 'Свернуть' : 'Развернуть';
@@ -70,6 +70,9 @@ const init = async () => {
 
                         }
                   });
+
+
+
             }
       });
 
