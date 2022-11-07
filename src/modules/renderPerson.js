@@ -1,4 +1,4 @@
-// отрисовка  мод окна Специалист при нажатии на картчоку специлалиста:
+// отрисовка  мод окна Специалист при открытиии картчоки специлалиста:
 import { createElement } from "./createElemet";
 import { API_URL, directions } from "./const";
 import { store } from "./store";
@@ -8,7 +8,7 @@ import { ratingController } from "./ratingController";
 
 
 
-export const renderPerson = (parent, data) => {  //  parent -родитлеьский эле-нт(.modal__person) куда отрисуем верстку специалиста, data = {name: 'Алексей', surname: 'Игнатов', category: 'photographer', phone: '+79145236123', email: 'ignatov.a@mail.com', …} -специалист
+export const renderPerson = (parent, data) => {    //  parent -родитлеьский эле-нт(.modal__person) куда отрисуем верстку специалиста, инфа с сервера о спеиалисте data = {name: 'Алексей', surname: 'Игнатов', category: 'photographer', phone: '+79145236123', email: 'ignatov.a@mail.com', …} -специалист
 
       parent.textContent = '';                        //  очищает содержимое мод окна
 
@@ -72,30 +72,30 @@ export const renderPerson = (parent, data) => {  //  parent -родитлеьс�
       };
 
       //form
-      const form = createElement('form', { className: 'person__form form form--add-review' }, container);
+      const formReview = createElement('form', { className: 'person__form form form--add-review' }, container);
 
-      const fieldset = createElement('fieldset', { className: 'form__fieldset form__wrapper-person' }, form);
+      const fieldset = createElement('fieldset', { className: 'form__fieldset form__wrapper-person' }, formReview);
 
       const labelName = createElement('label', { className: 'form__label' }, fieldset);
 
 
       createElement('span', { className: 'form__text', textContent: 'Имя' }, labelName);
-      createElement('input', { className: 'form__input' }, labelName);
+      createElement('input', { className: 'form__input', name: 'name' }, labelName);
 
 
 
       const labelPhone = createElement('label', { className: 'form__label', textContent: 'Телефон' }, fieldset);
       createElement('span', { className: 'form__text' }, labelPhone);
-      createElement('input', { className: 'form__input' }, labelPhone);
+      createElement('input', { className: 'form__input', name: 'phone' }, labelPhone);
 
 
 
-      const labelReview = createElement('label', { className: 'form__label form__label--personTextarea' }, form);
+      const labelReview = createElement('label', { className: 'form__label form__label--personTextarea' }, formReview);
       createElement('span', { className: 'form__text', textContent: 'Комментарий' }, labelReview);
-      createElement('textarea', { className: 'form__textarea' }, labelReview);
+      createElement('textarea', { className: 'form__textarea', name: 'text' }, labelReview);
 
-
-      const wraperSendReview = createElement('div', { className: 'form__wrapper-rating' }, form);
+      // отрисовка звездочек:
+      const wraperSendReview = createElement('div', { className: 'form__wrapper-rating' }, formReview);
       const rating = createElement('div', { className: 'form__rating rating' }, wraperSendReview);
       rating.dataset.stars = '3';                //   установили элементу дата-атрибут data-stars = 3
 
@@ -111,10 +111,10 @@ export const renderPerson = (parent, data) => {  //  parent -родитлеьс�
             `;
       }
 
-      // rating__input
+      // rating__input звездоки к отзыву:
       const ratingInput = createElement('input', { className: 'rating__input', type: 'hidden', name: 'rating' }, rating);
 
-      ratingController(rating, ratingInput); // проставлеn у скрытого поля дата-атрбит data-rating
+      ratingController(rating, ratingInput);                // проставлеn у скрытого поля дата-атрбит data-rating
 
       createElement('button', { className: 'form__submit', textContent: 'Опубликовать отзыв' }, wraperSendReview);
 

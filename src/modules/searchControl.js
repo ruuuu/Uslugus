@@ -1,6 +1,7 @@
 import { renderList } from "./renderList";
 import { API_URL } from "./const";
 
+// поису услуги по имени и описианию:
 
 export const searchControl = () => {
 

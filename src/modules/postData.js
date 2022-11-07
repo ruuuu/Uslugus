@@ -2,7 +2,7 @@
 import { customError } from "./customError";
 
 
-export const postData = async (url, data, method = 'POST') => {              //   data-данные формы {name: 'Rufina', surname: 'Davletova', phone: '56457457', email: 'kjhg@mail.ru'}, в формате json. Ставим  async  т к отправка данных на серер это асинхронная операция,  method = 'POST'  передастся, если при вызове не укажем паармтер method
+export const postData = async (url, data, method = 'POST') => {              //   data-данные формы {name: 'Rufina', surname: 'Davletova', phone: '56457457', email: 'kjhg@mail.ru'}, в формате json. Ставим  async  т к отправка данных на серер это асинхронная операция,  method = 'POST'  передастся по умолчанию, если при вызове не укажем паармтер method
 
       try {
             const response = await fetch(url, {                           //    wait  ставим, ткт долны дождаться ответа от сервера, иначе получим промис. Сам fetch() возвращаает промис, это асинхронная фукнция

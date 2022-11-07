@@ -14,16 +14,15 @@ export const modalController = ({                     // modal - селекто�
       const modalElem = document.querySelector(modal);            //  модалка с оверлеем(overlay)
 
       modalElem.style.cssText = `
-        display: flex;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity ${time}ms ease-in-out;
+            display: flex;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity ${time}ms ease-in-out;
       `;
 
 
       const data = {
             handlerOpenModal,    // функция
-
 
             handlerCloseModal,    // функция
 
@@ -42,13 +41,12 @@ export const modalController = ({                     // modal - селекто�
                   const target = evt.target;                      //  получаем элемнет на котрый нажали
 
                   if (target === modalElem || (btnClose && target.closest(btnClose)) || evt.code === 'Escape' || evt.type === 'submit') {                   //  evt.type тип события
-
                         modalElem.style.opacity = 0;
 
                         setTimeout(() => {
                               modalElem.style.visibility = 'hidden';                //  скрываем окно, действие выполнится через врмя time
                               data.handlerCloseModal({ modalElem });
-                        }, time); // 300 милисекунд
+                        }, time); // через  300 милисекунд запутсится эта фукняи
 
                         window.removeEventListener('keydown', data.closeModal);          //  снимаем обработчик с объекта window(объект браузера), чтобы после закрытия окна лишний раз не срабатывало событие
                   }
@@ -86,7 +84,7 @@ export const modalController = ({                     // modal - селекто�
 
 
       modalElem.addEventListener('click', data.closeModal);                  // по нажатию на оверлей или на крестик, вызовется фукнция closeModal
-
+      console.log('data in ModalController ', data);
       return data;                             // вернули объект
 };
 

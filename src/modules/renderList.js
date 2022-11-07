@@ -17,10 +17,6 @@ export const renderList = async (url = `${API_URL}/api/service`) => {           
       const cards = data.map(createCard);                        // [ <li>...</li>, <li>...</li>, <li>...</li> ], передаем функцию, а не  вызываем. map сам вызывает эту фукнуцию для каждого элемента массива data
 
       //console.log('cards ', cards);
-      serviceList.append(...cards);                   // в  ul добавляем массив [ <li>...</li>, <li>...</li>, <li>...</li> ]. При помощи спред отпертора добавляем сами li
-
-
-
-
+      serviceList.append(...cards);                   // в  ul добавляем массив [ <li>...</li>, <li>...</li>, <li>...</li> ]. При помощи спред отпертора добавляем li
 
 };

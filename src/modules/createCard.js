@@ -18,7 +18,7 @@ export const createCard = (item) => {                                   // item 
 
       serviceItem.append(service);
 
-      const serviceAvatar = new Image(50, 50);                          // <img width="50" height="50">
+      const serviceAvatar = new Image(50, 50);                          // если длать через new Image, томожно изображению задать высоту  и ширину  <img width="50" height="50">
       serviceAvatar.classList.add('service__avatar');
       serviceAvatar.src = `${API_URL}/${avatar}`;                       // http://localhost:3024/img/1234.jpg
       serviceAvatar.alt = `${category} ${surname} ${name}`;

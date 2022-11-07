@@ -2,7 +2,7 @@ import { createElement } from "./createElemet";
 import { createStars } from "./createStars";
 
 
-// заоплням список ul li-шками:
+//  создаем  в карточке спеуиалиста верстку отзывов, то етсь  заоплням список ul() li-шками(отзывы о специиалисте):
 
 export const createReview = (comments) => {  // comments = [ {name: 'Макс', stars: '4', text: 'тетсовые текст'},  {name: 'Федор', stars: '3', text: 'тетсовые текст'} ]
 

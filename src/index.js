@@ -29,7 +29,7 @@ const init = async () => {
       });
 
 
-      // для мод окна Регитрация вызываемвызываем чоыб окно закрывалось после регитрации:
+      // для мод окна Регитрация вызываем чоыб окно закрывалось после регитрации:
       const eventModalSignUp = modalController({
             modal: '.modal__sign-up',
             btnOpen: '.header__auth-btn--sign-out',
@@ -41,10 +41,10 @@ const init = async () => {
       const modalPerson = modalController({
             modal: '.modal__person',
             btnOpen: '.service',
-            parrentBtns: '.services__list',                  //  передаем parrentBtns: '.services__list', чтобы сделать делегирование(оно нужно вслучае  если добавим еще элементы спсика, то и на них  чтоб обработчик клика  повесился)
+            parrentBtns: '.services__list',                  //  передаем parrentBtns: '.services__list', чтобы сделать делегирование(оно нужно вслучае  если добавим нового спеиласта(зарегирируемиуем его), то чтобы и на него  обработчик клика  повесился)
             btnClose: '.modal__close',
 
-            handlerOpenModal: async ({ handler, modalElem }) => {                  // при открытии окна вызывается эта функия,    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } нужен чтобы знать id спеицалиста
+            handlerOpenModal: async ({ handler, modalElem }) => {                  // при открытии окна вызывается эта функия,    эта фукнция асинхронная, потмоу что запрос на сервер отправляеься. { handler } этот от элемент на котрый мы нажали то есть картчока спеиалиста  - article.service,  нужен чтобы знать id спеицалиста
                   console.log('handler ', { handler });                             // элемент с классом <artcile class="service"> - спеиалист
                   const data = await getData(`${API_URL}/api/service/${handler.dataset.id}`);                // получаем специалиста { name: 'Алексей',  surname: 'Игнатов',  category: 'photographer',  phone: '+79145236123',  email: 'ignatov.a@mail.com', … } по его id
 
@@ -52,22 +52,21 @@ const init = async () => {
 
                   renderPerson(modalElem, data);                                   // вызов фунции заполнения мод окна Person, modalElem- родитель куда отрисуем веркту специалиста
 
-
-
                   const comments = document.querySelectorAll('.review__text');            // псевдомассив NodeList ['.review__text', '.review__text', '.review__text']
 
+                  // отображение кнопки Развернуть у комментария:
                   comments.forEach((comment) => {
                         if (comment.scrollHeight > 38) {                      // если  скрытая высота у comment > 38
                               const button = document.createElement('button');
                               button.classList.add('review__open');
                               button.textContent = 'Развернуть';
-                              comment.after(button);                         // добавили кнопку Развернуть button  после comment
+                              comment.after(button);                         // добавили кнопку  button(Развернуть)  после comment
 
-                              button.addEventListener('click', () => {
+                              button.addEventListener('click', () => {      // по нажатию на кнкоу Равзернуть
 
                                     comment.classList.toggle('review__text--open');
                                     button.textContent = comment.classList.contains('review__text--open') ? 'Свернуть' : 'Развернуть';
-                              })
+                              });
 
                         }
                   });
@@ -102,7 +101,7 @@ const init = async () => {
 
 
 
-init();
+init();                 // отсда все начинается 
 
 
 // для запуска сервера, в терминале переходим в папку backendFor_uslugus, и пишем команду "node index"

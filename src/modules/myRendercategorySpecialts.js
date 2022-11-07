@@ -7,7 +7,7 @@ import { getData } from "./getData";
 
 export const myRendercategorySpecialts = async () => {
 
-      const buttons = document.querySelectorAll('.category__btn');   //массив кнпоок  [button, button, button]
+      const buttons = document.querySelectorAll('.category__btn');   // массив кнпоок  [button, button, button]
 
 
       buttons.forEach((button) => {
@@ -32,7 +32,7 @@ export const myRendercategorySpecialts = async () => {
 
                   serviceList.textContent = '';                                           // очищаем список
 
-                  const cards = mas.map(createCard);                        // [ <li>...</li>, <li>...</li>, <li>...</li> ], передаем функцию, а не  вызываем. map сам вызывает эту фукнуцию для каждого элемента массива data
+                  const cards = mas.map(createCard);                        // [ <li>...</li>, <li>...</li>, <li>...</li> ], передаем функцию, а не  вызываем. map сам вызывает эту фукнуцию для каждого элемента массива mas
 
                   //console.log('cards ', cards);
                   serviceList.append(...cards);

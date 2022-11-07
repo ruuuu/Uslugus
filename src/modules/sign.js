@@ -27,12 +27,14 @@ export const signInConstroller = (callback) => {
 
             if (dataResponse.errors) {                                              // если с серевр пришла ошибка
                   console.log('dataResponse.errors ', dataResponse.errors);
+                  // dataResponse.errors.forEach((error) => {
+                  //       form[error.filed].style.border = '1px solid red';
+                  // });
                   return;                                                           // далее код не будет выполнться
             }
 
             callback(evt);                      // вызыво коллбэк функии(closeModal) , это функция котрая закрывает мод окно авториации
-            auth(dataResponse);                 // меням верстку блока .header__auth, после соавризации
-
+            auth(dataResponse);                 // меням верстку блока .header__auth, после атовризации
       });
 
 
@@ -47,6 +49,7 @@ export const signUpConstroller = (cb) => {                  // тк форма �
       const headerAuth = document.querySelector('.header__auth');
 
       const form = document.querySelector('.form__sign-up');
+      form.action = `${API_URL}/api/service/signup`;
 
       const crp = avatarController({ inputFile: '.avatar__input', uploadResult: '.avatar__result', });              // .avatar__result контенер, где будет выводиться загруженная картинка    
 
@@ -85,16 +88,22 @@ export const signUpConstroller = (cb) => {                  // тк форма �
                   size: 'viewport',                                      // то есть тот размер котрый мы указали
             });
 
+            if (!data.avatar.includes('base64')) {
+                  delete data.avatar;                       // удаляем у объеккта data свойство avatar
+            }
 
-            const dataResponse = await postData(`${API_URL}/api/service/signup`, data, 'post');                                 // возвращает промис, чтбы был не промис, ставим await. Отправлянем данные  формы(data) на сервер  по урлу /api/service/signup , запрос на регистрацию
+
+            const dataResponse = await postData(form.action, data, form.dataset.method);                                 // возвращает промис, чтбы был не промис, ставим await. Отправлянем данные  формы(data) на сервер  по урлу /api/service/signup , запрос на регистрацию
 
             console.log('dataResponse ', dataResponse);                       // { name: 'Руфина',  surname: 'Давлтеова',  phone: '892345433234',  email: 'ryufhbm@mail.ru' }
+
+
 
             if (dataResponse.errors) {                                              // если с серевр пришла ошибка, dataResponse.errors это массив ошибок не пуст()
                   console.log('dataResponse.errors ', dataResponse.errors);
 
-                  const formError = document.querySelector('.form__error');
-                  formError.textContent = dataResponse.errors.message;
+                  // const formError = document.querySelector('.form__error');
+                  // formError.textContent = dataResponse.errors.message;
 
                   // dataResponse.errors.forEach((error) => {                    // переьирем массив ошибок [ {field: 'name',  }, {field: 'password'}, {field: 'category'}, {field: 'surname',} ]
                   //       if (error.field !== 'password') {
@@ -103,16 +112,19 @@ export const signUpConstroller = (cb) => {                  // тк форма �
                   //       else {
                   //             form[error.field].style.border = '1px solid black';
                   //       }
-
                   // });
 
                   return;                                                           // далее код не будет выполнться
             }
 
-            const servicesList = document.querySelector('.services__list');                     // ul спеиалистов
-            servicesList.append(createCard(dataResponse));                                      // добавляем  верстку карточку специалиста в спсиок ul
 
-            auth(dataResponse);                                                           // автоизация
+            if (form.dataset.method !== 'PATCH') {
+                  const servicesList = document.querySelector('.services__list');                     // ul спеиалистов
+                  servicesList.append(createCard(dataResponse));                                      // добавляем  верстку карточку специалиста в спсиок ul
+                  auth(dataResponse);                                                           // автоизация
+            }
+
+
             form.reset();                                                                       // очищаем поля формы
 
             crp.hideAvatar();                                                                   // очищаем контенейр для аватара у формы
