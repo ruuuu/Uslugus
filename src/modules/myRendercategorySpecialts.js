@@ -4,7 +4,7 @@ import { createCard } from "./createCard";
 import { API_URL } from "./const";
 import { getData } from "./getData";
 
-
+// фильрация по категориям специалиста:
 export const myRendercategorySpecialts = async () => {
 
       const buttons = document.querySelectorAll('.category__btn');   // массив кнпоок  [button, button, button]

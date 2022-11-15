@@ -17,6 +17,7 @@ import { renderPerson } from './modules/renderPerson';
 import { postData } from './modules/postData';
 
 
+
 const init = async () => {
 
       await getCategory();                                                    // получение категрий от сервера для боковго меню(await  стаивм ттк  в это метода запрос на сервер происходит, дожидаемся ответа от сервера)
@@ -26,7 +27,7 @@ const init = async () => {
       const eventModalSignIn = modalController({
             modal: '.modal__sign-in',
             btnOpen: '.header__auth-btn--sign-in',
-            btnClose: '.modal__close'
+            btnClose: '.modal__close',
       });
 
 
@@ -53,11 +54,16 @@ const init = async () => {
 
                   renderPerson(modalElem, data);                                   // вызов фунции заполнения мод окна Person, modalElem- родитель куда отрисуем веркту специалиста
 
-                  const comments = document.querySelectorAll('.review__text');            // псевдомассив NodeList ['.review__text', '.review__text', '.review__text']
+                  const comments = document.querySelectorAll('.review__text');            // псевдомассив NodeList ['p.review__text', 'p.review__text', 'p.review__text']
 
-                  // отображение кнопки Развернуть у комментария:
+                  // отображение кнопки Развернуть у комментария,перебираем комменты:
                   comments.forEach((comment) => {
-                        if (comment.scrollHeight > 38) {                      // если  скрытая высота у comment > 38
+
+                        if (comment.scrollHeight > 40 && !comment.nextElementSibling?.classList.contains('review__open')) {      // если у кнпоки Свернут нет класса  .review__open                                             // если  скрытая высота у comment > 38
+                              // const revoewOpen = comment.querySelector('.review__open');                             // кнпока Развернуть
+                              // if (revoewOpen) return;                                                          // не выпонять дальше код
+
+                              console.log('commwet ', comment);
                               const button = document.createElement('button');
                               button.classList.add('review__open');
                               button.textContent = 'Развернуть';
@@ -137,3 +143,14 @@ init();                 // отсда все начинается
 // img.width = 700;
 // imgWrap.append(img);
 
+
+
+// оператор ?. он не выдает оишбку(если чего то не сущемуте), а отдает undefined:
+// const obj = {
+//       name: 'Руфина',
+//       surname: 'Давлетова'
+// }
+
+// console.log(obj.name);
+// console.log(obj.skills?.hard); // тк свойства таокго не сущемвет, то отдаест undefined вместо ошибки. Тем самым код не будет падать
+// console.log(obj.skills?.soft); // тк свойства таокго не сущемвет, то отдаест undefined вместо ошибки

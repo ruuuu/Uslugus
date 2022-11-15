@@ -4,6 +4,7 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+            width: max-content; // не будь больше чем контент
             gap: 11px;
             cursor: pointer;
 
